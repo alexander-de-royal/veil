@@ -12,8 +12,10 @@
 #
 # The test profile relaxes certificate pinning to level 1 so mitmproxy can see
 # inside Mozilla's pinned hosts. That pref lives only in this throwaway
-# profile, never in the shipped build.
+# profile, never in the shipped build. Same for the two requireBuiltInCerts prefs.
 set -euo pipefail
+# Stay awake for the whole run (a sleeping Mac stalls the capture).
+command -v caffeinate >/dev/null && { caffeinate -i -w $$ & }
 name=${1:?name}; secs=${2:?seconds}; shift 2
 root=$(cd "$(dirname "$0")/../.." && pwd)
 src=$(ls -d "$root"/librewolf-*-*/ | head -1)
@@ -56,6 +58,11 @@ user_pref("network.proxy.ssl_port", $port);
 user_pref("network.proxy.no_proxies_on", "");
 user_pref("network.proxy.allow_hijacking_localhost", true);
 user_pref("security.cert_pinning.enforcement_level", 1);
+// Add-on downloads insist on a built-in CA across redirects when the build
+// does not enforce signing at compile time, which made uBlock Origin's
+// install fail silently behind mitmproxy (and hid all its traffic).
+user_pref("extensions.install.requireBuiltInCerts", false);
+user_pref("extensions.update.requireBuiltInCerts", false);
 JS
 if [ "${VEIL_EXPIRE_TIMERS:-}" = 1 ] && [ -f "$prof/prefs.js" ]; then
   grep -o 'app\.update\.lastUpdateTime\.[^"]*' "$prof/prefs.js" | sort -u | while read -r k; do
@@ -85,7 +92,8 @@ import json,sys,collections
 c=collections.Counter(); f=collections.Counter()
 for l in open(sys.argv[1]):
     r=json.loads(l)
-    (c if r["kind"]=="request" else f)[r["host"]]+=1
+    if r["kind"]=="request": c[r["host"]]+=1
+    elif r["kind"]=="tls_failed": f[r["host"]]+=1
 for h,n in c.most_common(): print(f"{n:5d}  {h}")
 for h,n in f.most_common(): print(f"{n:5d}  {h}  (TLS refused)")
 ' "$out/$name.jsonl" >"$out/$name.hosts" 2>/dev/null || : >"$out/$name.hosts"

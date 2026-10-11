@@ -26,7 +26,9 @@ def load(tag):
             continue
         for line in f.read_text().splitlines():
             r = json.loads(line)
-            h = hosts[r["host"] + (" (TLS refused)" if r["kind"] != "request" else "")]
+            if r["kind"] not in ("request", "tls_failed"):
+                continue
+            h = hosts[r["host"] + (" (TLS refused)" if r["kind"] == "tls_failed" else "")]
             h["n"] += 1
             h["phases"].add(ph)
             h["path"] = h["path"] or r.get("path", "")

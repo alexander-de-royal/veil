@@ -10,20 +10,58 @@ again on an existing tree after editing a pref (then `./mach build faster`).
 Order matters in a .cfg: a later defaultPref/lockPref for the same name wins,
 so Veil's prefs are appended AFTER LibreWolf's.
 """
+import hashlib
 import json
 import pathlib
+import shutil
 import sys
+import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 VEIL = ROOT / "veil"
 
 
 def merge(base, extra):
-    """Deep-merge dicts; lists and scalars from `extra` replace `base`."""
+    """Deep-merge dicts; lists and scalars from `extra` replace `base`, and
+    null removes the key."""
     out = dict(base)
     for k, v in extra.items():
-        out[k] = merge(out[k], v) if isinstance(v, dict) and isinstance(out.get(k), dict) else v
+        if v is None:
+            out.pop(k, None)
+        else:
+            out[k] = merge(out[k], v) if isinstance(v, dict) and isinstance(out.get(k), dict) else v
     return out
+
+
+def bundle_extensions(lw):
+    """Fetch each pinned extension (cached in veil/.cache), check its sha256,
+    and ship it in distribution/extensions so it is on before the first page."""
+    spec = json.loads((VEIL / "extensions.json").read_text())["extensions"]
+    cache = VEIL / ".cache"
+    cache.mkdir(exist_ok=True)
+    dest = lw / "extensions"
+    shutil.rmtree(dest, ignore_errors=True)
+    dest.mkdir()
+    names = []
+    for ext in spec:
+        f = cache / f"{ext['id']}-{ext['version']}.xpi"
+        if not f.exists():
+            print(f"veil: downloading {ext['url']}")
+            urllib.request.urlretrieve(ext["url"], f)
+        digest = hashlib.sha256(f.read_bytes()).hexdigest()
+        if digest != ext["sha256"]:
+            f.unlink()
+            sys.exit(f"veil: CHECKSUM MISMATCH for {ext['id']}: got {digest}")
+        shutil.copy(f, dest / f"{ext['id']}.xpi")
+        names.append(f'    "extensions/{ext["id"]}.xpi",')
+
+    build = lw / "moz.build"
+    text = build.read_text().split(MARK)[0].rstrip() + "\n"
+    text += f"\n{MARK}\nFINAL_TARGET_FILES.distribution.extensions += [\n" + "\n".join(names) + "\n]\n"
+    build.write_text(text)
+
+
+MARK = "# VEIL: bundled extensions (written by veil/apply.py)"
 
 
 def main(tree):
@@ -42,6 +80,7 @@ def main(tree):
         pol["policies"] = merge(pol["policies"], json.loads(extra.read_text())["policies"])
     (lw / "policies.json").write_text(json.dumps(pol, indent=4) + "\n")
 
+    bundle_extensions(lw)
     print(f"veil: wrote {lw/'librewolf.cfg'} and {lw/'policies.json'}")
 
 

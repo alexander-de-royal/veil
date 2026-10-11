@@ -1,0 +1,74 @@
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "len": 0, "t": 1791749617.37}
+{"kind": "error", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "error": "HTTP/2 connection closed: <ConnectionTerminated error_code:0, last_stream_id:0, additional_data:None>", "t": 1791749617.73}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "len": 0, "t": 1791749617.87}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?collection=hijack-blocklists&bucket=main&_expected=0", "len": 0, "t": 1791749618.16}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?collection=hijack-blocklists&bucket=main&_expected=0", "status": 200, "t": 1791749618.39}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/hijack-blocklists/changeset?_expected=1605801189258&_since=1605801189258", "len": 0, "t": 1791749618.4}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/hijack-blocklists/changeset?_expected=1605801189258&_since=1605801189258", "status": 200, "t": 1791749618.51}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "status": 200, "t": 1791749618.81}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791749618.91}
+{"kind": "request", "method": "GET", "host": "malware-filter.gitlab.io", "path": "/phishing-filter/phishing-filter.txt?_=3", "len": 0, "t": 1791749618.92}
+{"kind": "response", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "status": 200, "t": 1791749618.96}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791749618.97}
+{"kind": "response", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "status": 200, "t": 1791749619.04}
+{"kind": "response", "host": "malware-filter.gitlab.io", "path": "/phishing-filter/phishing-filter.txt?_=3", "status": 200, "t": 1791749620.77}
+{"kind": "request", "method": "GET", "host": "pgl.yoyo.org", "path": "/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext", "len": 0, "t": 1791749623.93}
+{"kind": "response", "host": "pgl.yoyo.org", "path": "/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext", "status": 200, "t": 1791749624.51}
+{"kind": "request", "method": "GET", "host": "malware-filter.pages.dev", "path": "/urlhaus-filter-ag-online.txt", "len": 0, "t": 1791749625.75}
+{"kind": "response", "host": "malware-filter.pages.dev", "path": "/urlhaus-filter-ag-online.txt", "status": 200, "t": 1791749626.51}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easyprivacy.txt", "len": 0, "t": 1791749627.83}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easyprivacy.txt", "status": 200, "t": 1791749629.06}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easylist.txt", "len": 0, "t": 1791749630.13}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easylist.txt", "status": 200, "t": 1791749631.99}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/quick-fixes.min.txt", "len": 0, "t": 1791749633.07}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/quick-fixes.min.txt", "status": 200, "t": 1791749633.32}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/unbreak.min.txt", "len": 0, "t": 1791749634.59}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/unbreak.min.txt", "status": 200, "t": 1791749634.76}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/privacy.min.txt", "len": 0, "t": 1791749635.8}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/privacy.min.txt", "status": 200, "t": 1791749635.92}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/badware.min.txt", "len": 0, "t": 1791749636.99}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/badware.min.txt", "status": 200, "t": 1791749637.12}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/filters.min.txt", "len": 0, "t": 1791749638.16}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/filters.min.txt", "status": 200, "t": 1791749639.55}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/badlists.txt", "len": 0, "t": 1791749640.63}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/badlists.txt", "status": 200, "t": 1791749640.71}
+{"kind": "request", "method": "GET", "host": "publicsuffix.org", "path": "/list/public_suffix_list.dat", "len": 0, "t": 1791749641.93}
+{"kind": "response", "host": "publicsuffix.org", "path": "/list/public_suffix_list.dat", "status": 200, "t": 1791749642.17}
+{"kind": "request", "method": "GET", "host": "librewolf.dev", "path": "/librewolf/source/raw/branch/main/assets/uBOAssets.json", "len": 0, "t": 1791749643.66}
+{"kind": "response", "host": "librewolf.dev", "path": "/librewolf/source/raw/branch/main/assets/uBOAssets.json", "status": 200, "t": 1791749643.71}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?_expected=0", "len": 0, "t": 1791749647.19}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?_expected=0", "status": 200, "t": 1791749647.3}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/blocklists/collections/addons-bloomfilters/changeset?_expected=1791743824611&_since=1791160611854", "len": 0, "t": 1791749647.31}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/blocklists/collections/addons-bloomfilters/changeset?_expected=1791743824611&_since=1791160611854", "status": 200, "t": 1791749647.42}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/security-state/collections/cert-revocations/changeset?_expected=1791734223963", "len": 0, "t": 1791749647.44}
+{"kind": "request", "method": "GET", "host": "versioncheck-bg.addons.mozilla.org", "path": "/update/VersionCheck.php?reqVersion=2&id=uBlock0@raymondhill.net&version=1.75.0&maxAppVersion=null&status=userEnabled&appID={ec8030f7-c20a-464f-9b0e-13a3a9e97384}&appVersion=157.0.1&appOS=Darwin&appABI=aarch64-gcc3&locale=en-GB&currentAppVersion=157.0.1&updateType=112&compatMode=normal", "len": 0, "t": 1791749647.46}
+{"kind": "response", "host": "versioncheck-bg.addons.mozilla.org", "path": "/update/VersionCheck.php?reqVersion=2&id=uBlock0@raymondhill.net&version=1.75.0&maxAppVersion=null&status=userEnabled&appID={ec8030f7-c20a-464f-9b0e-13a3a9e97384}&appVersion=157.0.1&appOS=Darwin&appABI=aarch64-gcc3&locale=en-GB&currentAppVersion=157.0.1&updateType=112&compatMode=normal", "status": 200, "t": 1791749647.52}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/security-state/collections/cert-revocations/changeset?_expected=1791734223963", "status": 200, "t": 1791749647.54}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/onecrl.content-signature.mozilla.org-2026-11-25-18-04-25.chain", "len": 0, "t": 1791749647.56}
+{"kind": "response", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/onecrl.content-signature.mozilla.org-2026-11-25-18-04-25.chain", "status": 200, "t": 1791749647.63}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/security-state/collections/intermediates/changeset?_expected=1791644222687&_since=1791129422638", "len": 0, "t": 1791749647.75}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/security-state/collections/intermediates/changeset?_expected=1791644222687&_since=1791129422638", "status": 200, "t": 1791749647.83}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/security-state/collections/onecrl/changeset?_expected=1791573428759&_since=1781825227560", "len": 0, "t": 1791749648.0}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/security-state/collections/onecrl/changeset?_expected=1791573428759&_since=1781825227560", "status": 200, "t": 1791749648.08}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/translations-models/changeset?_expected=1791321446736&_since=1788296824409", "len": 0, "t": 1791749648.19}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/translations-models/changeset?_expected=1791321446736&_since=1788296824409", "status": 200, "t": 1791749648.29}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/blocklists/collections/gfx/changeset?_expected=1787185519530&_since=1787185519530", "len": 0, "t": 1791749648.34}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/blocklists/collections/gfx/changeset?_expected=1787185519530&_since=1787185519530", "status": 200, "t": 1791749648.43}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/websites-with-shared-credential-backends/changeset?_expected=1764684432032&_since=1764684432032", "len": 0, "t": 1791749648.44}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/websites-with-shared-credential-backends/changeset?_expected=1764684432032&_since=1764684432032", "status": 200, "t": 1791749648.52}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/password-rules/changeset?_expected=1764684322196&_since=1764684322196", "len": 0, "t": 1791749648.55}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/password-rules/changeset?_expected=1764684322196&_since=1764684322196", "status": 200, "t": 1791749648.63}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/webcompat-interventions/changeset?_expected=1757988949828", "len": 0, "t": 1791749648.63}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/webcompat-interventions/changeset?_expected=1757988949828", "status": 200, "t": 1791749648.7}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/translations-wasm/changeset?_expected=1749069444811&_since=1749069444811", "len": 0, "t": 1791749648.71}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/translations-wasm/changeset?_expected=1749069444811&_since=1749069444811", "status": 200, "t": 1791749648.78}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/password-recipes/changeset?_expected=1674595048726&_since=1674595048726", "len": 0, "t": 1791749648.79}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/password-recipes/changeset?_expected=1674595048726&_since=1674595048726", "status": 200, "t": 1791749648.87}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/language-dictionaries/changeset?_expected=1673270322227&_since=1673270322227", "len": 0, "t": 1791749648.88}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/language-dictionaries/changeset?_expected=1673270322227&_since=1673270322227", "status": 200, "t": 1791749648.97}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/anti-tracking-url-decoration/changeset?_expected=1564511755134&_since=1564511755134", "len": 0, "t": 1791749648.98}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/anti-tracking-url-decoration/changeset?_expected=1564511755134&_since=1564511755134", "status": 200, "t": 1791749649.05}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/security-state-staging/cert-revocations/20260902025244--adebd750-56a1-47c0-8d24-c829c84a2c7a--124fe565-1feb-4aa5-812b-3b41476f588e.filter", "len": 0, "t": 1791749649.08}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/security-state--intermediates.zip", "len": 0, "t": 1791749649.09}
+{"kind": "error", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/security-state-staging/cert-revocations/20260902025244--adebd750-56a1-47c0-8d24-c829c84a2c7a--124fe565-1feb-4aa5-812b-3b41476f588e.filter", "error": "peer closed connection", "t": 1791750579.69}
+{"kind": "error", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/security-state--intermediates.zip", "error": "peer closed connection", "t": 1791750579.69}
