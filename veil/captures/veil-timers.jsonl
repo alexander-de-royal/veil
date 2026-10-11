@@ -1,0 +1,5 @@
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "len": 0, "t": 1791731650.26}
+{"kind": "request", "method": "GET", "host": "addons.mozilla.org", "path": "/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi", "len": 0, "t": 1791731650.37}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791731650.88}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791731650.88}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?_expected=0", "len": 0, "t": 1791731680.6}

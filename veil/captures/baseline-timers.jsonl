@@ -1,0 +1,8 @@
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "len": 0, "t": 1791730954.3}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791730954.81}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791730954.92}
+{"kind": "request", "method": "GET", "host": "addons.mozilla.org", "path": "/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi", "len": 0, "t": 1791730954.94}
+{"kind": "request", "method": "GET", "host": "push.services.mozilla.com", "path": "/", "len": 0, "t": 1791730955.09}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?_expected=0", "len": 0, "t": 1791730985.74}
+{"kind": "request", "method": "GET", "host": "services.addons.mozilla.org", "path": "/api/v4/addons/search/?guid=default-theme%40mozilla.org%2Cfirefox-compact-dark%40mozilla.org%2Cfirefox-alpenglow%40mozilla.org%2Cfirefox-compact-light%40mozilla.org&lang=en-US", "len": 0, "t": 1791730985.75}
+{"kind": "request", "method": "GET", "host": "aus5.mozilla.org", "path": "/update/3/SystemAddons/157.0.1/20261011072007/Darwin_aarch64-gcc3/en-US/default/Darwin%252025.6.0/default/default/update.xml", "len": 0, "t": 1791730986.45}
