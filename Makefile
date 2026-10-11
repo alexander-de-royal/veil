@@ -130,6 +130,7 @@ $(lw_source_dir): $(ff_source_tarball) ./version ./release scripts/librewolf-pat
 	tar xf $(ff_source_tarball)
 	mv $(ff_source_dir) $(lw_source_dir)
 	python3 scripts/librewolf-patches.py $(version) $(release)
+	python3 veil/apply.py $(lw_source_dir)  # VEIL: our prefs and policies on top
 
 $(lw_source_tarball): $(lw_source_dir)
 	rm -f $(lw_source_tarball)
