@@ -26,3 +26,13 @@ def request(flow):
 def tls_failed_client(data):
     _write({"kind": "tls_failed", "host": data.context.client.sni or "?",
             "error": str(data.conn.error)[:200]})
+
+
+def response(flow):
+    _write({"kind": "response", "host": flow.request.pretty_host,
+            "path": flow.request.path[:300], "status": flow.response.status_code})
+
+
+def error(flow):
+    _write({"kind": "error", "host": flow.request.pretty_host,
+            "path": flow.request.path[:300], "error": str(flow.error)[:200]})
