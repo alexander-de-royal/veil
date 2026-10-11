@@ -1,0 +1,11 @@
+{
+    "__COMMENT__": "Extensions bundled into the build, pinned by version and checksum. They install into each new profile on first launch (distribution/extensions), offline, and then update from addons.mozilla.org like any add-on. To bump: change url + version, run apply.py once, paste the sha256 it prints.",
+    "extensions": [
+        {
+            "id": "uBlock0@raymondhill.net",
+            "version": "1.75.0",
+            "url": "https://addons.mozilla.org/firefox/downloads/file/5034826/ublock_origin-1.75.0.xpi",
+            "sha256": "5b74415860456370644bd80f16125e865b0e6c356bb5dfcfb84069967eaa5287"
+        }
+    ]
+}
