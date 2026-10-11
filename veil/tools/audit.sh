@@ -5,6 +5,8 @@
 #   <tag>-browse   third launch, visiting a few ordinary sites, 2 min
 #   veil/tools/audit.sh <tag>
 set -euo pipefail
+# Stay awake for the whole run (a sleeping Mac stalls the capture).
+command -v caffeinate >/dev/null && { caffeinate -i -w $$ & }
 tag=${1:?tag}
 here=$(dirname "$0")
 P=$(mktemp -d /tmp/veil-audit.XXXXXX)

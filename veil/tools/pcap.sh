@@ -12,6 +12,7 @@
 # names the system resolved during the run (DNS is sent by macOS's resolver,
 # not the browser, so that list includes other apps too).
 set -euo pipefail
+command -v caffeinate >/dev/null && { caffeinate -i -w $$ & }
 [ "$(id -u)" = 0 ] || { echo "run with sudo"; exit 1; }
 secs=${1:-300}
 root=$(cd "$(dirname "$0")/../.." && pwd)

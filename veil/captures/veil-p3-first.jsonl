@@ -1,0 +1,76 @@
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/", "len": 0, "t": 1791748658.09}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/", "status": 200, "t": 1791748658.44}
+{"kind": "request", "method": "GET", "host": "librewolf.dev", "path": "/librewolf/source/raw/branch/main/assets/uBOAssets.json?_=2", "len": 0, "t": 1791748658.98}
+{"kind": "response", "host": "librewolf.dev", "path": "/librewolf/source/raw/branch/main/assets/uBOAssets.json?_=2", "status": 200, "t": 1791748659.46}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "len": 0, "t": 1791748659.46}
+{"kind": "request", "method": "GET", "host": "malware-filter.gitlab.io", "path": "/phishing-filter/phishing-filter.txt?_=2", "len": 0, "t": 1791748659.82}
+{"kind": "request", "method": "GET", "host": "ublockorigin.github.io", "path": "/uAssets/filters/privacy-removeparam.txt?_=2", "len": 0, "t": 1791748659.82}
+{"kind": "request", "method": "GET", "host": "raw.githubusercontent.com", "path": "/DandelionSprout/adfilt/master/LegitimateURLShortener.txt?_=2", "len": 0, "t": 1791748659.82}
+{"kind": "response", "host": "ublockorigin.github.io", "path": "/uAssets/filters/privacy-removeparam.txt?_=2", "status": 200, "t": 1791748660.33}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "status": 200, "t": 1791748660.5}
+{"kind": "response", "host": "raw.githubusercontent.com", "path": "/DandelionSprout/adfilt/master/LegitimateURLShortener.txt?_=2", "status": 200, "t": 1791748660.51}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791748661.32}
+{"kind": "response", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "status": 200, "t": 1791748661.49}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?collection=fxmonitor-breaches&bucket=main&_expected=0", "len": 0, "t": 1791748661.64}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011015--ads-track-digest256--5491f3fc-8de7-4391-9c74-9ee64852a0c5", "len": 0, "t": 1791748661.65}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/monitor/collections/changes/changeset?collection=fxmonitor-breaches&bucket=main&_expected=0", "status": 200, "t": 1791748661.84}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011015--ads-track-digest256--5491f3fc-8de7-4391-9c74-9ee64852a0c5", "status": 200, "t": 1791748661.84}
+{"kind": "request", "method": "GET", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/fxmonitor-breaches/changeset?_expected=1788787306834", "len": 0, "t": 1791748661.85}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011020--social-track-digest256--f2a441f9-7432-45f8-b82c-0157e356923b", "len": 0, "t": 1791748661.85}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011020--social-track-digest256--f2a441f9-7432-45f8-b82c-0157e356923b", "status": 200, "t": 1791748662.02}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011017--analytics-track-digest256--62010be1-8f8b-4881-8a66-e909e79cd672", "len": 0, "t": 1791748662.02}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011017--analytics-track-digest256--62010be1-8f8b-4881-8a66-e909e79cd672", "status": 200, "t": 1791748662.09}
+{"kind": "response", "host": "firefox.settings.services.mozilla.com", "path": "/v2/buckets/main/collections/fxmonitor-breaches/changeset?_expected=1788787306834", "status": 200, "t": 1791748662.09}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011012--content-track-digest256--735bbbbe-f5d5-4f1e-8bc7-38cadb5ce39d", "len": 0, "t": 1791748662.11}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011012--content-track-digest256--735bbbbe-f5d5-4f1e-8bc7-38cadb5ce39d", "status": 200, "t": 1791748662.19}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011035--mozstd-trackwhite-digest256--74ae066d-3663-4c43-a7a4-9adf0f0ff90d", "len": 0, "t": 1791748662.19}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011035--mozstd-trackwhite-digest256--74ae066d-3663-4c43-a7a4-9adf0f0ff90d", "status": 200, "t": 1791748662.65}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011038--google-trackwhite-digest256--3939952d-23f9-43d9-bd44-ee2d40f66d2b", "len": 0, "t": 1791748662.71}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011038--google-trackwhite-digest256--3939952d-23f9-43d9-bd44-ee2d40f66d2b", "status": 200, "t": 1791748663.93}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011041--base-fingerprinting-track-digest256--de24de6f-addc-441c-b6c5-d0cdaeb7a0fa", "len": 0, "t": 1791748663.94}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011041--base-fingerprinting-track-digest256--de24de6f-addc-441c-b6c5-d0cdaeb7a0fa", "status": 200, "t": 1791748664.13}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011046--base-cryptomining-track-digest256--58771c7e-3ae4-444f-bef5-59818896f851", "len": 0, "t": 1791748664.13}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011046--base-cryptomining-track-digest256--58771c7e-3ae4-444f-bef5-59818896f851", "status": 200, "t": 1791748664.21}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011025--social-tracking-protection-facebook-digest256--634d9be7-3799-4adf-baa9-98950aeb94da", "len": 0, "t": 1791748664.21}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011025--social-tracking-protection-facebook-digest256--634d9be7-3799-4adf-baa9-98950aeb94da", "status": 200, "t": 1791748664.28}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011030--social-tracking-protection-linkedin-digest256--2cfe547b-99e7-4964-b774-0883642cc07d", "len": 0, "t": 1791748664.28}
+{"kind": "response", "host": "malware-filter.gitlab.io", "path": "/phishing-filter/phishing-filter.txt?_=2", "status": 200, "t": 1791748664.29}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011030--social-tracking-protection-linkedin-digest256--2cfe547b-99e7-4964-b774-0883642cc07d", "status": 200, "t": 1791748664.36}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011027--social-tracking-protection-twitter-digest256--6ca56633-1908-4830-82cf-24c64788c16e", "len": 0, "t": 1791748664.36}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011027--social-tracking-protection-twitter-digest256--6ca56633-1908-4830-82cf-24c64788c16e", "status": 200, "t": 1791748664.43}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011051--base-email-track-digest256--d509dc47-342f-4f84-a112-5a98c841e954", "len": 0, "t": 1791748664.43}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011051--base-email-track-digest256--d509dc47-342f-4f84-a112-5a98c841e954", "status": 200, "t": 1791748664.53}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011054--content-email-track-digest256--30ffcaff-d4bf-43a6-8aaf-5e1539caa739", "len": 0, "t": 1791748664.54}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011054--content-email-track-digest256--30ffcaff-d4bf-43a6-8aaf-5e1539caa739", "status": 200, "t": 1791748664.66}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011056--consent-manager-track-digest256--7ee83161-1c1c-4623-996d-3608575391db", "len": 0, "t": 1791748664.67}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011056--consent-manager-track-digest256--7ee83161-1c1c-4623-996d-3608575391db", "status": 200, "t": 1791748664.74}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011059--anti-fraud-track-digest256--019e7844-9057-407c-8047-a892b275a595", "len": 0, "t": 1791748664.74}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260929011059--anti-fraud-track-digest256--019e7844-9057-407c-8047-a892b275a595", "status": 200, "t": 1791748664.89}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260902011102--harmful-addon-block-digest256--e3d8a362-be5b-4df6-b7d4-b75bc0f13ef5", "len": 0, "t": 1791748664.9}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/main-workspace/tracking-protection-lists/20260902011102--harmful-addon-block-digest256--e3d8a362-be5b-4df6-b7d4-b75bc0f13ef5", "status": 200, "t": 1791748664.97}
+{"kind": "request", "method": "GET", "host": "pgl.yoyo.org", "path": "/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext", "len": 0, "t": 1791748667.37}
+{"kind": "response", "host": "pgl.yoyo.org", "path": "/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext", "status": 200, "t": 1791748667.99}
+{"kind": "request", "method": "GET", "host": "malware-filter.gitlab.io", "path": "/urlhaus-filter/urlhaus-filter-ag-online.txt", "len": 0, "t": 1791748669.05}
+{"kind": "response", "host": "malware-filter.gitlab.io", "path": "/urlhaus-filter/urlhaus-filter-ag-online.txt", "status": 200, "t": 1791748669.86}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/thirdparties/easyprivacy.txt", "len": 0, "t": 1791748671.12}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/thirdparties/easyprivacy.txt", "status": 200, "t": 1791748671.5}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easylist.txt", "len": 0, "t": 1791748672.74}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easylist.txt", "status": 200, "t": 1791748673.7}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/quick-fixes.min.txt", "len": 0, "t": 1791748674.77}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/quick-fixes.min.txt", "status": 200, "t": 1791748674.83}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/unbreak.min.txt", "len": 0, "t": 1791748675.89}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/unbreak.min.txt", "status": 200, "t": 1791748676.36}
+{"kind": "request", "method": "GET", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/privacy.min.txt", "len": 0, "t": 1791748677.38}
+{"kind": "response", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/privacy.min.txt", "status": 200, "t": 1791748677.5}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/badware.min.txt", "len": 0, "t": 1791748678.56}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/badware.min.txt", "status": 200, "t": 1791748678.77}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/filters.min.txt", "len": 0, "t": 1791748679.82}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/filters.min.txt", "status": 200, "t": 1791748680.62}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/badlists.txt", "len": 0, "t": 1791748681.67}
+{"kind": "error", "host": "ublockorigin.pages.dev", "path": "/filters/badlists.txt", "error": "peer closed connection", "t": 1791749607.59}
+{"kind": "request", "method": "GET", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/badlists.txt", "len": 0, "t": 1791749607.6}
+{"kind": "error", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/badlists.txt", "error": "peer closed connection", "t": 1791749607.63}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/badlists.txt", "len": 0, "t": 1791749607.64}
+{"kind": "error", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/badlists.txt", "error": "peer closed connection", "t": 1791749607.68}
+{"kind": "request", "method": "GET", "host": "ublockorigin.github.io", "path": "/uAssets/filters/badlists.txt", "len": 0, "t": 1791749607.69}
+{"kind": "response", "host": "ublockorigin.github.io", "path": "/uAssets/filters/badlists.txt", "status": 200, "t": 1791749607.86}

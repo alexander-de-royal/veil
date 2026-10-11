@@ -1,0 +1,115 @@
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "len": 0, "t": 1791750589.56}
+{"kind": "error", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "error": "HTTP/2 connection closed: <ConnectionTerminated error_code:0, last_stream_id:0, additional_data:None>", "t": 1791750589.67}
+{"kind": "request", "method": "GET", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "len": 0, "t": 1791750589.84}
+{"kind": "request", "method": "GET", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "len": 0, "t": 1791750589.97}
+{"kind": "response", "host": "content-signature-2.cdn.mozilla.net", "path": "/g/chains/202402/remote-settings.content-signature.mozilla.org-2026-11-23-21-33-13.chain", "status": 200, "t": 1791750590.03}
+{"kind": "request", "method": "GET", "host": "malware-filter.gitlab.io", "path": "/phishing-filter/phishing-filter.txt?_=3", "len": 0, "t": 1791750590.9}
+{"kind": "response", "host": "firefox-settings-attachments.cdn.mozilla.net", "path": "/bundles/startup.json.mozlz4", "status": 200, "t": 1791750591.18}
+{"kind": "response", "host": "malware-filter.gitlab.io", "path": "/phishing-filter/phishing-filter.txt?_=3", "status": 200, "t": 1791750593.52}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/wiki/Web_browser", "len": 0, "t": 1791750595.1}
+{"kind": "request", "method": "GET", "host": "example.com", "path": "/", "len": 0, "t": 1791750595.11}
+{"kind": "response", "host": "example.com", "path": "/", "status": 200, "t": 1791750595.21}
+{"kind": "request", "method": "GET", "host": "example.com", "path": "/s.js", "len": 0, "t": 1791750595.27}
+{"kind": "response", "host": "example.com", "path": "/s.js", "status": 200, "t": 1791750595.33}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/wiki/Web_browser", "status": 200, "t": 1791750595.35}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.cite.parsoid.styles%7Cext.cite.styles%7Cext.tmh.player.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediamessages.styles%7Cjquery.makeCollapsible.styles%7Cjquery.tablesorter.styles%7Cmediawiki.skinning.content.parsoid%7Cski", "len": 0, "t": 1791750595.44}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=startup&only=scripts&raw=1&skin=vector-2022", "len": 0, "t": 1791750595.44}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=site.styles&only=styles&skin=vector-2022", "len": 0, "t": 1791750595.44}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/static/images/icons/enwiki-25.svg", "len": 0, "t": 1791750595.45}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg", "len": 0, "t": 1791750595.45}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/static/images/mobile/copyright/wikipedia-tagline-en-25.svg", "len": 0, "t": 1791750595.45}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.cite.parsoid.styles%7Cext.cite.styles%7Cext.tmh.player.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediamessages.styles%7Cjquery.makeCollapsible.styles%7Cjquery.tablesorter.styles%7Cmediawiki.skinning.content.parsoid%7Cski", "status": 200, "t": 1791750595.69}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=site.styles&only=styles&skin=vector-2022", "status": 200, "t": 1791750595.7}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=startup&only=scripts&raw=1&skin=vector-2022", "status": 200, "t": 1791750595.72}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg", "status": 200, "t": 1791750595.72}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=menu&format=original&lang=en&skin=vector-2022&version=zp9ra", "len": 0, "t": 1791750595.87}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=language&variant=progressive&format=original&lang=en&skin=vector-2022&version=zp9ra", "len": 0, "t": 1791750595.87}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/skins/Vector/resources/skins.vector.styles/images/arrow-down-progressive.svg?5cd6d", "len": 0, "t": 1791750595.87}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=verticalEllipsis&format=original&lang=en&skin=vector-2022&version=zp9ra", "len": 0, "t": 1791750595.87}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg?8330e", "len": 0, "t": 1791750595.93}
+{"kind": "request", "method": "GET", "host": "thumb.wikimedia.org", "path": "/wikipedia/commons/thumb/c/c1/Web_browser_demo.webm/250px--Web_browser_demo.webm.jpg", "len": 0, "t": 1791750595.96}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/resources/src/jquery.tablesorter.styles/images/sort_both.svg?0e440", "len": 0, "t": 1791750595.98}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/skins/Vector/resources/skins.vector.styles/images/link-external-small-ltr-progressive.svg?fb64d", "len": 0, "t": 1791750595.98}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/static/images/mobile/copyright/wikipedia-tagline-en-25.svg", "status": 200, "t": 1791750596.06}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/static/images/icons/enwiki-25.svg", "status": 200, "t": 1791750596.12}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.gadget.ReferenceTooltips%2Cswitcher&skin=vector-2022&version=wc99c", "len": 0, "t": 1791750596.12}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.visualEditor.core.utils.parsing%7Cext.visualEditor.desktopArticleTarget.init%7Cext.visualEditor.progressBarWidget%2CsupportCheck%2CtargetLoader%2CtempWikitextEditorWidget%2Ctrack%2Cve&skin=vector-2022&version=1yc9z", "len": 0, "t": 1791750596.13}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.centralNotice.bannerHistoryLogger%2CchoiceData%2Cdisplay%2CgeoIP%2CimpressionDiet%2CkvStore%2ClargeBannerLimit%2ClegacySupport%2CstartUp%7Cext.centralauth.ForeignApi%2Ccentralautologin%7Cext.checkUser.clientHints%7Cext.cite.ux-enhancements%7Cext.cx.eventlogging.campai", "len": 0, "t": 1791750596.13}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=menu&format=original&lang=en&skin=vector-2022&version=zp9ra", "status": 200, "t": 1791750596.26}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=verticalEllipsis&format=original&lang=en&skin=vector-2022&version=zp9ra", "status": 200, "t": 1791750596.26}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=language&variant=progressive&format=original&lang=en&skin=vector-2022&version=zp9ra", "status": 200, "t": 1791750596.26}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/skins/Vector/resources/skins.vector.styles/images/arrow-down-progressive.svg?5cd6d", "status": 200, "t": 1791750596.26}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg?8330e", "status": 200, "t": 1791750596.26}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/resources/src/jquery.tablesorter.styles/images/sort_both.svg?0e440", "status": 200, "t": 1791750596.26}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/skins/Vector/resources/skins.vector.styles/images/link-external-small-ltr-progressive.svg?fb64d", "status": 200, "t": 1791750596.26}
+{"kind": "response", "host": "thumb.wikimedia.org", "path": "/wikipedia/commons/thumb/c/c1/Web_browser_demo.webm/250px--Web_browser_demo.webm.jpg", "status": 200, "t": 1791750596.33}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.gadget.ReferenceTooltips%2Cswitcher&skin=vector-2022&version=wc99c", "status": 200, "t": 1791750596.37}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.visualEditor.core.utils.parsing%7Cext.visualEditor.desktopArticleTarget.init%7Cext.visualEditor.progressBarWidget%2CsupportCheck%2CtargetLoader%2CtempWikitextEditorWidget%2Ctrack%2Cve&skin=vector-2022&version=1yc9z", "status": 200, "t": 1791750596.39}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/static/apple-touch/wikipedia.png", "len": 0, "t": 1791750596.7}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/static/favicon/wikipedia.ico", "len": 0, "t": 1791750596.71}
+{"kind": "request", "method": "GET", "host": "upload.wikimedia.org", "path": "/wikipedia/commons/6/65/Lock-green.svg", "len": 0, "t": 1791750596.86}
+{"kind": "request", "method": "GET", "host": "thumb.wikimedia.org", "path": "/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/40px-Semi-protection-shackle.svg.png", "len": 0, "t": 1791750596.94}
+{"kind": "request", "method": "GET", "host": "thumb.wikimedia.org", "path": "/wikipedia/commons/thumb/b/ba/Safari_15.png/500px-Safari_15.png", "len": 0, "t": 1791750596.94}
+{"kind": "response", "host": "upload.wikimedia.org", "path": "/wikipedia/commons/6/65/Lock-green.svg", "status": 200, "t": 1791750597.26}
+{"kind": "request", "method": "GET", "host": "pgl.yoyo.org", "path": "/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext", "len": 0, "t": 1791750597.26}
+{"kind": "request", "method": "GET", "host": "upload.wikimedia.org", "path": "/wikipedia/commons/d/d6/Lock-gray-alt-2.svg", "len": 0, "t": 1791750597.3}
+{"kind": "response", "host": "thumb.wikimedia.org", "path": "/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/40px-Semi-protection-shackle.svg.png", "status": 200, "t": 1791750597.31}
+{"kind": "response", "host": "upload.wikimedia.org", "path": "/wikipedia/commons/d/d6/Lock-gray-alt-2.svg", "status": 200, "t": 1791750597.43}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.centralNotice.bannerHistoryLogger%2CchoiceData%2Cdisplay%2CgeoIP%2CimpressionDiet%2CkvStore%2ClargeBannerLimit%2ClegacySupport%2CstartUp%7Cext.centralauth.ForeignApi%2Ccentralautologin%7Cext.checkUser.clientHints%7Cext.cite.ux-enhancements%7Cext.cx.eventlogging.campai", "status": 200, "t": 1791750597.43}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/static/apple-touch/wikipedia.png", "status": 200, "t": 1791750597.43}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/static/favicon/wikipedia.ico", "status": 200, "t": 1791750597.44}
+{"kind": "response", "host": "thumb.wikimedia.org", "path": "/wikipedia/commons/thumb/b/ba/Safari_15.png/500px-Safari_15.png", "status": 200, "t": 1791750597.51}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.cite.referencePreviews%7Cext.math.popup%7Cext.popups.main&skin=vector-2022&version=zzdks", "len": 0, "t": 1791750598.08}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=mw.config.values.wbCurrentSiteDetails%2CwbRepo%7Coojs-ui.styles.icons-editing-core&skin=vector-2022&version=34vgf", "len": 0, "t": 1791750598.08}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=ext.cite.referencePreviews%7Cext.math.popup%7Cext.popups.main&skin=vector-2022&version=zzdks", "status": 200, "t": 1791750598.51}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?lang=en&modules=mw.config.values.wbCurrentSiteDetails%2CwbRepo%7Coojs-ui.styles.icons-editing-core&skin=vector-2022&version=34vgf", "status": 200, "t": 1791750598.51}
+{"kind": "response", "host": "pgl.yoyo.org", "path": "/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext", "status": 200, "t": 1791750598.88}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/wiki/Special:CentralAutoLogin/start?useformat=desktop&type=script&usesul3=1", "len": 0, "t": 1791750599.44}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/wiki/Special:CentralAutoLogin/start?useformat=desktop&type=script&usesul3=1", "status": 302, "t": 1791750599.84}
+{"kind": "request", "method": "GET", "host": "malware-filter.gitlab.io", "path": "/urlhaus-filter/urlhaus-filter-ag-online.txt", "len": 0, "t": 1791750599.89}
+{"kind": "request", "method": "GET", "host": "auth.wikimedia.org", "path": "/metawiki/wiki/Special:CentralAutoLogin/checkLoggedIn?useformat=desktop&wikiid=enwiki&usesul3=1&type=script", "len": 0, "t": 1791750601.21}
+{"kind": "request", "method": "GET", "host": "meta.wikimedia.org", "path": "/w/index.php?title=Special:BannerLoader&campaign=wlm_2026_us&banner=wlm_2026_us&uselang=en&debug=false", "len": 0, "t": 1791750601.21}
+{"kind": "response", "host": "auth.wikimedia.org", "path": "/metawiki/wiki/Special:CentralAutoLogin/checkLoggedIn?useformat=desktop&wikiid=enwiki&usesul3=1&type=script", "status": 200, "t": 1791750601.54}
+{"kind": "response", "host": "meta.wikimedia.org", "path": "/w/index.php?title=Special:BannerLoader&campaign=wlm_2026_us&banner=wlm_2026_us&uselang=en&debug=false", "status": 200, "t": 1791750601.54}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=search&format=original&lang=en&skin=vector-2022&version=zp9ra", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=speechBubbles&format=original&lang=en&skin=vector-2022&version=16qkf", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=article&format=original&lang=en&skin=vector-2022&version=16qkf", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=history&format=original&lang=en&skin=vector-2022&version=16qkf", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=star&format=original&lang=en&skin=vector-2022&version=zp9ra", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=wikiText&format=original&lang=en&skin=vector-2022&version=16qkf", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=edit&format=original&lang=en&skin=vector-2022&version=16qkf", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=editLock&format=original&lang=en&skin=vector-2022&version=16qkf", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=language&format=original&lang=en&skin=vector-2022&version=zp9ra", "len": 0, "t": 1791750603.5}
+{"kind": "request", "method": "GET", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=speechBubbleAdd&variant=progressive&format=original&lang=en&skin=vector-2022&version=16qkf", "len": 0, "t": 1791750603.5}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=search&format=original&lang=en&skin=vector-2022&version=zp9ra", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=speechBubbles&format=original&lang=en&skin=vector-2022&version=16qkf", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=article&format=original&lang=en&skin=vector-2022&version=16qkf", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=history&format=original&lang=en&skin=vector-2022&version=16qkf", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=star&format=original&lang=en&skin=vector-2022&version=zp9ra", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=wikiText&format=original&lang=en&skin=vector-2022&version=16qkf", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=edit&format=original&lang=en&skin=vector-2022&version=16qkf", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=editLock&format=original&lang=en&skin=vector-2022&version=16qkf", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons&image=language&format=original&lang=en&skin=vector-2022&version=zp9ra", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "en.wikipedia.org", "path": "/w/load.php?modules=skins.vector.icons.js&image=speechBubbleAdd&variant=progressive&format=original&lang=en&skin=vector-2022&version=16qkf", "status": 200, "t": 1791750603.71}
+{"kind": "response", "host": "malware-filter.gitlab.io", "path": "/urlhaus-filter/urlhaus-filter-ag-online.txt", "status": 200, "t": 1791750605.4}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easyprivacy.txt", "len": 0, "t": 1791750607.68}
+{"kind": "request", "method": "GET", "host": "upload.wikimedia.org", "path": "/wikipedia/commons/thumb/c/ca/Wiki_Loves_Monuments_Logo_notext.svg/60px-Wiki_Loves_Monuments_Logo_notext.svg.png", "len": 0, "t": 1791750608.5}
+{"kind": "response", "host": "upload.wikimedia.org", "path": "/wikipedia/commons/thumb/c/ca/Wiki_Loves_Monuments_Logo_notext.svg/60px-Wiki_Loves_Monuments_Logo_notext.svg.png", "status": 200, "t": 1791750608.88}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/thirdparties/easyprivacy.txt", "status": 200, "t": 1791750608.98}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/thirdparties/easylist.txt", "len": 0, "t": 1791750610.43}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/thirdparties/easylist.txt", "status": 200, "t": 1791750613.03}
+{"kind": "request", "method": "GET", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/quick-fixes.min.txt", "len": 0, "t": 1791750614.48}
+{"kind": "response", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/quick-fixes.min.txt", "status": 200, "t": 1791750614.61}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/unbreak.min.txt", "len": 0, "t": 1791750615.67}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/unbreak.min.txt", "status": 200, "t": 1791750616.0}
+{"kind": "request", "method": "GET", "host": "ublockorigin.pages.dev", "path": "/filters/privacy.min.txt", "len": 0, "t": 1791750617.07}
+{"kind": "response", "host": "ublockorigin.pages.dev", "path": "/filters/privacy.min.txt", "status": 200, "t": 1791750617.26}
+{"kind": "request", "method": "GET", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/badware.min.txt", "len": 0, "t": 1791750618.34}
+{"kind": "response", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/badware.min.txt", "status": 200, "t": 1791750618.61}
+{"kind": "request", "method": "GET", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/filters.min.txt", "len": 0, "t": 1791750619.63}
+{"kind": "response", "host": "ublockorigin.github.io", "path": "/uAssetsCDN/filters/filters.min.txt", "status": 200, "t": 1791750620.38}
+{"kind": "request", "method": "GET", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/badlists.txt", "len": 0, "t": 1791750621.46}
+{"kind": "response", "host": "cdn.jsdelivr.net", "path": "/gh/uBlockOrigin/uAssetsCDN@main/filters/badlists.txt", "status": 200, "t": 1791750621.53}
+{"kind": "request", "method": "GET", "host": "publicsuffix.org", "path": "/list/public_suffix_list.dat", "len": 0, "t": 1791750623.19}
+{"kind": "response", "host": "publicsuffix.org", "path": "/list/public_suffix_list.dat", "status": 200, "t": 1791750624.01}
+{"kind": "tls_failed", "host": "librewolf.dev", "error": "connection closed early", "t": 1791750877.66}

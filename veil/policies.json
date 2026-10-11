@@ -1,0 +1,10 @@
+{
+    "__COMMENT__": "Deep-merged into LibreWolf's settings/distribution/policies.json by apply.py; null deletes a key. Comments cannot go inside policies (schema validation). uBlock0 install_url is removed because Veil bundles uBO (extensions.json): with an install_url Firefox re-downloads the add-on on every new profile, since the bundled copy's source is not that URL. Without it, the policy fetches uBO from addons.mozilla.org only if it is missing.",
+    "policies": {
+        "ExtensionSettings": {
+            "uBlock0@raymondhill.net": {
+                "install_url": null
+            }
+        }
+    }
+}
