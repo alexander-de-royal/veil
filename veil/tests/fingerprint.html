@@ -1,0 +1,99 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Veil fingerprint probe</title>
+<script>
+// Collects what a fingerprinting script would. Sets window.fp when done.
+async function sha(s) {
+  const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return [...new Uint8Array(d)].slice(0, 8).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+function canvasData() {
+  const c = document.createElement("canvas"); c.width = 280; c.height = 60;
+  const x = c.getContext("2d");
+  x.textBaseline = "top"; x.font = "16px Arial"; x.fillStyle = "#f60"; x.fillRect(100, 1, 62, 20);
+  x.fillStyle = "#069"; x.fillText("Veil fingerprint, \u{1F600} 1.0", 2, 15);
+  x.fillStyle = "rgba(102,204,0,0.7)"; x.fillText("Veil fingerprint, \u{1F600} 1.0", 4, 17);
+  x.beginPath(); x.arc(50, 30, 20, 0, Math.PI * 2); x.stroke();
+  return c.toDataURL();
+}
+function webgl() {
+  try {
+    const c = document.createElement("canvas"), g = c.getContext("webgl");
+    if (!g) return { available: false };
+    const dbg = g.getExtension("WEBGL_debug_renderer_info");
+    const params = [g.MAX_TEXTURE_SIZE, g.MAX_VIEWPORT_DIMS, g.MAX_RENDERBUFFER_SIZE, g.ALIASED_LINE_WIDTH_RANGE,
+                    g.MAX_VERTEX_UNIFORM_VECTORS, g.MAX_FRAGMENT_UNIFORM_VECTORS].map(p => String(g.getParameter(p)));
+    return {
+      available: true,
+      vendor: g.getParameter(g.VENDOR), renderer: g.getParameter(g.RENDERER),
+      unmaskedVendor: dbg ? g.getParameter(dbg.UNMASKED_VENDOR_WEBGL) : null,
+      unmaskedRenderer: dbg ? g.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : null,
+      extensions: (g.getSupportedExtensions() || []).length, params: params.join("|"),
+    };
+  } catch (e) { return { error: String(e) }; }
+}
+async function audio() {
+  try {
+    const ctx = new OfflineAudioContext(1, 5000, 44100), o = ctx.createOscillator(), comp = ctx.createDynamicsCompressor();
+    o.type = "triangle"; o.frequency.value = 10000; o.connect(comp); comp.connect(ctx.destination); o.start(0);
+    const buf = await ctx.startRendering(), d = buf.getChannelData(0);
+    let sum = 0; for (let i = 4500; i < 5000; i++) sum += Math.abs(d[i]);
+    return sum.toFixed(10);
+  } catch (e) { return "error"; }
+}
+function fonts() {
+  // Classic width test: a font is "installed" if text in it measures differently
+  // from the generic fallback.
+  const list = ["Arial", "Helvetica", "Times New Roman", "Courier New", "Georgia", "Verdana", "Menlo", "Monaco",
+    "Avenir", "Avenir Next", "Futura", "Gill Sans", "Optima", "Palatino", "Baskerville", "Didot", "Hoefler Text",
+    "American Typewriter", "Chalkboard SE", "Comic Sans MS", "Impact", "Trebuchet MS", "Tahoma", "Calibri", "Cambria",
+    "Segoe UI", "Roboto", "Open Sans", "Lato", "Noto Sans", "Ubuntu", "DejaVu Sans", "Liberation Sans", "Fira Code",
+    "JetBrains Mono", "SF Mono", "Source Code Pro", "Inter", "Instrument Sans", "Newsreader", "Fraunces", "Papyrus",
+    "Brush Script MT", "Copperplate", "Herculanum", "Zapfino", "Skia", "PT Sans", "Charter", "Rockwell",
+    // plus any names passed as #fonts=A,B (the test adds this machine's user-installed fonts)
+    ...decodeURIComponent((location.hash.match(/fonts=([^&]*)/) || [, ""])[1]).split(",").filter(Boolean)];
+  const s = document.createElement("span"); s.textContent = "mmmmmmmmmmlli1WQ@#"; s.style.fontSize = "72px";
+  s.style.position = "absolute"; document.body.appendChild(s);
+  const base = {};
+  for (const g of ["monospace", "serif", "sans-serif"]) { s.style.fontFamily = g; base[g] = [s.offsetWidth, s.offsetHeight]; }
+  const found = list.filter(f => ["monospace", "serif", "sans-serif"].some(g => {
+    s.style.fontFamily = `"${f}", ${g}`; return s.offsetWidth != base[g][0] || s.offsetHeight != base[g][1]; }));
+  s.remove(); return found;
+}
+function timerResolution() {
+  // Smallest step performance.now() moves by, sampled over ~300 ms (long
+  // enough for several steps even at RFP's 16.7 ms).
+  let min = Infinity, last = performance.now();
+  const end = Date.now() + 300;
+  while (Date.now() < end) { const t = performance.now(); if (t > last) { min = Math.min(min, t - last); last = t; } }
+  return Math.round(min * 1000) / 1000;
+}
+const mq = q => matchMedia(q).matches;
+(async () => {
+  const n = navigator, ro = Intl.DateTimeFormat().resolvedOptions();
+  const devices = n.mediaDevices ? await n.mediaDevices.enumerateDevices().catch(() => []) : [];
+  const fp = {
+    userAgent: n.userAgent, appVersion: n.appVersion, platform: n.platform, oscpu: n.oscpu, vendor: n.vendor,
+    languages: (n.languages || []).join(","), language: n.language, intlLocale: ro.locale, timeZone: ro.timeZone,
+    tzOffsetJan: new Date(2026, 0, 1).getTimezoneOffset(), tzOffsetJul: new Date(2026, 6, 1).getTimezoneOffset(),
+    dateString: new Date(Date.UTC(2026, 0, 1, 12)).toString(),
+    numberFormat: (1234567.891).toLocaleString(), screen: [screen.width, screen.height, screen.availWidth, screen.availHeight].join("x"),
+    colorDepth: screen.colorDepth, inner: innerWidth + "x" + innerHeight, outer: outerWidth + "x" + outerHeight,
+    screenPos: [screenX, screenY].join(","), devicePixelRatio, hardwareConcurrency: n.hardwareConcurrency,
+    deviceMemory: n.deviceMemory ?? null, maxTouchPoints: n.maxTouchPoints, pdfViewerEnabled: n.pdfViewerEnabled,
+    plugins: n.plugins.length, mimeTypes: n.mimeTypes.length, doNotTrack: n.doNotTrack,
+    globalPrivacyControl: n.globalPrivacyControl ?? null, cookieEnabled: n.cookieEnabled,
+    canvas: await sha(canvasData()), webgl: webgl(), audio: await audio(), fonts: fonts().join(","),
+    darkMode: mq("(prefers-color-scheme: dark)"), reducedMotion: mq("(prefers-reduced-motion: reduce)"),
+    contrast: mq("(prefers-contrast: more)"), pointerFine: mq("(pointer: fine)"), hover: mq("(hover: hover)"),
+    forcedColors: mq("(forced-colors: active)"),
+    mediaDevices: devices.map(d => d.kind).sort().join(","), voices: (window.speechSynthesis?.getVoices() || []).length,
+    timerResolutionMs: timerResolution(), connection: !!n.connection, battery: "getBattery" in n,
+    scrollbar: (() => { const d = document.createElement("div"); d.style.cssText = "width:100px;height:100px;overflow:scroll;position:absolute";
+      document.body.appendChild(d); const w = d.offsetWidth - d.clientWidth; d.remove(); return w; })(),
+    systemFont: getComputedStyle(Object.assign(document.body.appendChild(document.createElement("p")), { style: "font: menu" })).fontFamily,
+  };
+  window.fp = fp;
+})().catch(e => { window.fp = { error: String(e) }; });
+</script>
+<body></body>
