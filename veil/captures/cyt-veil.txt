@@ -1,0 +1,373 @@
+A Project of the Electronic Frontier Foundation
+See how trackers view your browser
+Learn About Donate
+HOW TO READ YOUR REPORT
+
+You will see a summary of your overall tracking protection. The first section gives you a general idea of what your browser configuration is blocking (or not blocking). Below that is a list of specific browser characteristics in the format that a tracker would view them. We also provide descriptions of how they are incorporated into your fingerprint.
+
+HOW CAN TRACKERS TRACK YOU?
+
+Trackers use a variety of methods to identify and track users. Most often, this includes tracking cookies, but it can also include browser fingerprinting. Fingerprinting is a sneakier way to track users and makes it harder for users to regain control of their browsers. This report measures how easily trackers might be able to fingerprint your browser.
+
+HOW CAN I USE MY RESULTS TO BE MORE ANONYMOUS?
+
+Knowing how easily identifiable you are, or whether you are currently blocking trackers, can help you know what to do next to protect your privacy. While most trackers can be derailed by browser add-ons or built-in protection mechanisms, the sneakiest trackers have ways around even the strongest security. We recommend you use a tracker blocker like Privacy Badger or use a browser that has fingerprinting protection built in.
+
+WHAT IS A BIT OF INFORMATION?
+
+A “bit” is a basic unit of information for computers. The bit represents a logical state with one of two possible values, often represented as "1" or "0", for example. In your results from Cover Your Tracks, some metrics may be listed as “1” or “0”, or “true” or “false”, indicating whether a setting is enabled or disabled. While each individual metric’s details may seem like a small amount of information, when combined with your browser’s other metrics, they can uniquely identify your browser. Your results are measured in “bits of identifying information,” which is a combined summary of all these metrics.
+
+Thanks to Fingerprint2 for various fingerprinting tests, Aloodo for portions of the tracker test. Send questions or comments to coveryourtracks@eff.org.
+
+Here are your Cover Your Tracks results. They include an overview of how visible you are to trackers, with an index (and glossary) of all the metrics we measure below.
+
+Our tests indicate that you have strong protection against Web tracking.
+IS YOUR BROWSER:
+Blocking tracking ads?	Yes
+Blocking invisible trackers?	Yes
+Protecting you from fingerprinting?	Partial protection
+
+Still wondering how fingerprinting works?
+
+LEARN MORE
+
+Note: because tracking techniques are complex, subtle, and constantly evolving, Cover Your Tracks does not measure all forms of tracking and protection.
+
+Your Results
+
+Within our dataset of several hundred thousand visitors tested in the past 45 days, only one in 21610.47 browsers have the same fingerprint as yours.
+
+Currently, we estimate that your browser has a fingerprint that conveys 14.4 bits of identifying information.
+
+The measurements we used to obtain this result are listed below. You can read more about our methodology, statistical results, and some defenses against fingerprinting here.
+
+Detailed Results
+
+Here’s some more granular information we gathered about your browser. Your report includes examples of several different kinds of metrics:
+
+WEB HEADERS
+
+Whenever you connect to a website (in our case, “https://coveryourtracks.eff.org”), your device sends a request that includes HTTP headers. These headers contain information like your device’s timezone, language, privacy settings, and cookies. Web headers are transmitted by your browser with every site visit.
+
+JAVASCRIPT-DERIVED CHARACTERISTICS
+
+Some details about your browser can be discovered by using JavaScript code. This includes fonts, certain details about your hardware configuration, and your canvas fingerprint.
+
+Select a characteristic
+DEFAULT VIEW
+DETAILED VIEW
+USER AGENT
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:157.0) Gecko/20100101 Firefox/157.0
+
+
+WHAT IS THIS?
+
+A web header that relays information to the web server about your browser and its version.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This information can be very specific. If customized can single-handedly identify a specific user’s browser.
+
+Bits of identifying information: 6.91
+One in x browsers have this value: 120.29
+HTTP_ACCEPT HEADERS
+text/html, */*; q=0.01 gzip, deflate, br, zstd en-US,en;q=0.9
+
+
+WHAT IS THIS?
+
+A web header that is used to let the server know what types of content the browser is able to handle.
+
+For example, a server can choose to deliver a plain text file if it sees that a user’s browser does not support rich documents.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This information can be fairly unique, and varies from browser to browser. However, this string doesn’t tend to change much over time, and can remain constant through many versions of the same browser.
+
+Bits of identifying information: 1.6
+One in x browsers have this value: 3.02
+BROWSER PLUGIN DETAILS
+Plugin 0: Chrome PDF Viewer; Portable Document Format; internal-pdf-viewer; (Portable Document Format; application/pdf; pdf) (Portable Document Format; text/pdf; pdf). Plugin 1: Chromium PDF Viewer; Portable Document Format; internal-pdf-viewer; (Portable Document Format; application/pdf; pdf) (Portable Document Format; text/pdf; pdf). Plugin 2: Microsoft Edge PDF Viewer; Portable Document Format; internal-pdf-viewer; (Portable Document Format; application/pdf; pdf) (Portable Document Format; text/pdf; pdf). Plugin 3: PDF Viewer; Portable Document Format; internal-pdf-viewer; (Portable Document Format; application/pdf; pdf) (Portable Document Format; text/pdf; pdf). Plugin 4: WebKit built-in PDF; Portable Document Format; internal-pdf-viewer; (Portable Document Format; application/pdf; pdf) (Portable Document Format; text/pdf; pdf).
+
+
+WHAT IS THIS?
+
+A plugin is a small piece of software that helps a browser manage content it is unable to process on its own.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+Browser plugins have been phased out over the past few years. Instead, browsers favor more regulated add-ons and extensions. But plugins persist in older browsers.
+
+Bits of identifying information: 0.69
+One in x browsers have this value: 1.62
+TIME ZONE OFFSET
+0
+
+
+Time Zone Offset
+WHAT IS THIS?
+
+This metric is a number which indicates the current difference between your time and GMT, in minutes.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+Historically, time zones couldn’t be transmitted by browser headers, so time offset was used instead. It does not always change in step with the ‘time zone’ metric and thus can provide more insight particular in areas that are unique in the way they observe daylight savings time.
+
+Bits of identifying information: 2.69
+One in x browsers have this value: 6.44
+TIME ZONE
+Atlantic/Reykjavik
+
+
+WHAT IS THIS?
+
+This metric is a string which indicates your time zone, like ‘America/Los_Angeles’.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This metric can be used to figure out your general location, especially if you live in a time zone without many other users.
+
+Bits of identifying information: 2.79
+One in x browsers have this value: 6.92
+SCREEN SIZE AND COLOR DEPTH
+1400x800x24
+
+
+WHAT IS THIS?
+
+The dimensions of your current browser window, and its color depth.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+While this metric can supplement other information, it’s often too ‘brittle’ to be usable by trackers because users can easily change their browser window dimensions.
+
+Bits of identifying information: 7.42
+One in x browsers have this value: 170.71
+SYSTEM FONTS
+Andale Mono, Arial, Arial Black, Arial Hebrew, Arial Narrow, Arial Rounded MT Bold, Arial Unicode MS, Comic Sans MS, Courier, Courier New, Geneva, Georgia, Helvetica, Helvetica Neue, Impact, LUCIDA GRANDE, Microsoft Sans Serif, Monaco, Palatino, Tahoma, Times, Times New Roman, Trebuchet MS, Verdana, Wingdings, Wingdings 2, Wingdings 3 (via javascript)
+
+
+WHAT IS THIS?
+
+To determine your system fonts, tracking sites commonly display some text in an HTML <span> tag. Trackers then rapidly change the style for that span, rendering it in hundreds or thousands of known fonts. For each of these fonts, the site determines whether the width of the span has changed from the default width when rendered in that particular font. If it has, the tracker knows that font is installed.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+The list of fonts you have installed on your machine is generally consistent and linked to a particular operating system. If you install just one font which is unusual for your particular browser, this can be a highly identifying metric.
+
+Bits of identifying information: 3.73
+One in x browsers have this value: 13.24
+ARE COOKIES ENABLED?
+Yes
+
+
+WHAT IS THIS?
+
+Cookies are small chunks of information that websites store in your browser. They are primarily used to automatically remember things like your account login info, or what items were in your online shopping cart–in other words, they save your place. However, they can also be used to link all of your visits, searches, and other activities on a site together.
+
+As a metric, “cookies enabled” is either ‘True’ or ‘False’, and means your browser allows cookies, rather than blocking them. Whether cookies are enabled can be determined with or without the use of JavaScript.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+Whether cookies are enabled or not provides a single bit of information: either ‘true’ or ‘false.’ However, this feature can be far more identifying when combined with other details.
+
+Bits of identifying information: 0.06
+One in x browsers have this value: 1.04
+LIMITED SUPERCOOKIE TEST
+DOM localStorage: Yes, DOM sessionStorage: Yes, IE userData: No, openDatabase: false, indexed db: true
+
+
+WHAT IS THIS?
+
+Despite the name, “super cookies” are not technically cookies. While they also store and retrieve unique identifiers, they are much harder to detect and delete in comparison.
+
+Super cookies can monitor what websites you visit and how long you spend on them. Super cookies can also access data collected by traditional tracking cookies, like login information. After the traditional cookie has been deleted, the super cookie will still be able to reference it.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+The list of super cookies available to a tracker can be very revealing. Most browsers no longer support Flash animations, but if yours does this can be used as an extra fingerprinting metric.
+
+Bits of identifying information: 0.14
+One in x browsers have this value: 1.1
+HASH OF CANVAS FINGERPRINT
+randomized
+
+
+WHAT IS THIS?
+
+A tracking site can perform a specific test on the HTML5 <canvas> element in your browser. This metric is the unique identification the tracker assigns to your browser after it performs this test.
+
+Canvas fingerprinting is invisible to the user. A tracker can create a “canvas” in your browser, and generate a complicated collage of shapes, colors, and text using JavaScript. Then, with the resulting collage, the tracker extracts data about exactly how each pixel on the canvas is rendered. Many variables will affect the final result. These include your operating system, graphics card, firmware version, graphics driver version, and installed fonts.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This is a complex and very reliable fingerprinting metric for trackers.
+
+Slightly different images will be rendered due to small differences in:
+
+video card hardware,
+video drivers,
+operating system, and
+installed fonts.
+
+These settings are different from one computer to the next. But they tend to be consistent enough on a single machine to clearly identify a user.
+
+Bits of identifying information: 2.59
+One in x browsers have this value: 6.03
+HASH OF WEBGL FINGERPRINT
+3fc626e8acbbe972260fbca2c079100b
+
+
+WHAT IS THIS?
+
+WebGL is a JavaScript API for rendering interactive 2D and 3D graphics. The method for generating a “hash of WebGL fingerprint” is very similar to generating a “hash of canvas fingerprint.” Its method is to use your browser to generate graphics, extracting data from how each pixel is rendered, serialize the result, and hash it.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+The WebGL and canvas fingerprinting results are closely linked. They both examine browser-rendered graphics for tiny differences between users.
+
+Bits of identifying information: 3.64
+One in x browsers have this value: 12.49
+WEBGL VENDOR & RENDERER
+TypeError: can't access property "getExtension", e is null
+
+
+WHAT IS THIS?
+
+WebGL is a library that allows browsers to render 3D graphics. As with other graphics-based tracking methods, trackers look for any tiny differences between how your device displays 3D on the web compared to other users.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This metric provides some level of granularity, depending on how unique your video card is. The WebGL Vendor and renderer is directly searchable using JavaScript, so trackers can access it without issue.
+
+Bits of identifying information: 3.6
+One in x browsers have this value: 12.15
+DNT HEADER ENABLED?
+False
+
+
+WHAT IS THIS?
+
+A web header that is used to let the server know if you prefer not to be tracked. This is usually either not delivered at all, or set to ‘1’. A setting of ‘1’ indicates that your browser would prefer not to be tracked. Unfortunately, most sites ignore this request.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+Browsers which set the DNT header to ‘1’ are fairly rare, and this can be an identifying metric. However, this should be left as the default for your browser.
+
+Bits of identifying information: 0.41
+One in x browsers have this value: 1.33
+LANGUAGE
+en-US
+
+
+WHAT IS THIS?
+
+This metric notes languages you prefer site content to be delivered in.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This can add a fair amount of information to your browser fingerprint. This is especially true if the language is uncommon for your timezone. While some other fingerprinting metrics can be protected by the browser or add-ons, this is not possible for language. Spoofing the language header would greatly impede usability.
+
+Bits of identifying information: 0.92
+One in x browsers have this value: 1.89
+PLATFORM
+MacIntel
+
+
+WHAT IS THIS?
+
+This metric includes your operating system and CPU (central processing unit) architecture and is directly searchable by trackers using JavaScript.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This can either be very unique or very commonplace, depending on your particular machine.
+
+Bits of identifying information: 3.05
+One in x browsers have this value: 8.29
+TOUCH SUPPORT
+Max touchpoints: 0; TouchEvent supported: false; onTouchStart supported: false
+
+
+WHAT IS THIS?
+
+This metric refers to the number of touch points on a device, such a tablet or phone.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+If you are using a mobile device, this may be very identifying depending on the hardware particularities. Your result will be 0 if your device has no touch points.
+
+Bits of identifying information: 1.0
+One in x browsers have this value: 2.0
+AD BLOCKER USED
+no javascript
+
+
+WHAT IS THIS?
+
+This metric tests to see if you have an ad blocker installed, and is either ‘True’ or ‘False,’ and may differ depending on how you block ads.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This adds little information to your fingerprint, but can be minimally useful in making you identifiable.
+
+Bits of identifying information: -0.0
+One in x browsers have this value: 1.0
+AUDIOCONTEXT FINGERPRINT
+35.74996626004577
+
+
+WHAT IS THIS?
+
+This metric is like canvas fingerprinting, but for audio rather than graphics. An audio sample is generated. That audio sample is then serialized and measured to provide this fingerprint.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+Like canvas fingerprinting, this can be unique depending on your audio card and drivers, and usually will not change over time. In modern handheld devices and laptops, graphics cards and audio cards will vary depending on the model. But they will not change between devices of the same model. For desktop computers, especially ones with customized hardware, the audio card will provide new information. This information is useful for fingerprinting.
+
+Bits of identifying information: 3.71
+One in x browsers have this value: 13.08
+CPU CLASS
+N/A
+
+
+WHAT IS THIS?
+
+This metric is just the manufacturer of your CPU. It is only rarely revealed by browsers.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This metric can prove useful for identification. This is especially true for systems with custom hardware.
+
+Bits of identifying information: 0.06
+One in x browsers have this value: 1.04
+HARDWARE CONCURRENCY
+8
+
+
+WHAT IS THIS?
+
+This metric notes the number of CPU cores in your current machine.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+This can provide some additional information when combined with other fingerprinting metrics, but is not identifying on its own.
+
+Bits of identifying information: 2.0
+One in x browsers have this value: 3.99
+DEVICE MEMORY (GB)
+N/A
+
+
+WHAT IS THIS?
+
+This metric notes the amount of memory on your current machine, rounded to the nearest gigabyte.
+
+HOW IS THIS USED IN YOUR FINGERPRINT?
+
+The usefulness of this metric is like hardware concurrency. It is useful when combined with other metrics, but is not identifying on its own.
+
+Bits of identifying information: 1.02
+One in x browsers have this value: 2.03
+Back to Top ↑
+RE-TEST YOUR BROWSER
+DONATE TO EFF CONTACT PRIVACY CC-LICENSE
