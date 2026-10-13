@@ -52,12 +52,13 @@ def free_port():
 
 class Server:
     def __init__(self):
-        self.pages, self.hits = {}, []
+        self.pages, self.hits, self.headers = {}, [], []
         outer = self
 
         class H(http.server.BaseHTTPRequestHandler):
             def do_GET(self):
                 outer.hits.append((self.headers.get("Host", ""), self.path))
+                outer.headers.append((self.path, dict(self.headers)))
                 entry = outer.pages.get(self.path.split("?")[0])
                 if entry is None:
                     self.send_response(404); self.end_headers(); return
@@ -95,7 +96,7 @@ class Server:
 
 
 class Browser:
-    def __init__(self, app=None, extra_prefs=None, profile=None):
+    def __init__(self, app=None, extra_prefs=None, profile=None, env=None, headless=True):
         # profile=<dir> reuses one (and keeps it) to test a second launch.
         self.keep = profile is not None
         self.prof = profile or tempfile.mkdtemp(prefix="veil-test.")
@@ -108,7 +109,9 @@ class Browser:
         with open(os.path.join(self.prof, "user.js"), "w") as f:
             for k, v in prefs.items():
                 f.write(f"user_pref({json.dumps(k)}, {json.dumps(v)});\n")
-        env = dict(os.environ, MOZ_HEADLESS="1")
+        env = dict(os.environ, **(env or {}))
+        if headless:
+            env["MOZ_HEADLESS"] = "1"
         self.proc = subprocess.Popen(
             [str(app or find_app()), "-no-remote", "-profile", self.prof,
              "-marionette", "-remote-allow-system-access"],
