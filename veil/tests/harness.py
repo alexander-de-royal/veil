@@ -3,7 +3,7 @@
 Starts the browser headless on a throwaway profile with Marionette (Firefox's
 built-in automation protocol) and a tiny local web server, and gives tests:
 
-    b.go(url)                 navigate and wait for load
+    b.go(url)                 navigate and wait for load (returns error page URL)
     b.js(script, *args)       run JS in the page, return its result
     b.chrome_js(script)       run JS with browser privileges (prefs, add-ons)
     b.wait(script, timeout)   poll page JS until it returns something truthy
@@ -21,6 +21,7 @@ import contextlib
 import http.server
 import json
 import os
+import re
 import pathlib
 import shutil
 import socket
@@ -151,7 +152,14 @@ class Browser:
                 return r[3]
 
     def go(self, url):
-        self._cmd("WebDriver:Navigate", {"url": url})
+        """Navigate; returns the about: URL if the browser showed an error page."""
+        try:
+            self._cmd("WebDriver:Navigate", {"url": url})
+        except RuntimeError as e:
+            m = re.search(r"Reached error page: (\S+)", str(e))
+            if not m:
+                raise
+            return m.group(1)
 
     def js(self, script, *args):
         return self._cmd("WebDriver:ExecuteScript", {"script": script, "args": list(args)})["value"]
