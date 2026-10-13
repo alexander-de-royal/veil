@@ -29,6 +29,7 @@ python3 veil/apply.py librewolf-157.0.1-1 && (cd librewolf-157.0.1-1 && ./mach b
 python3 veil/tests/test_tracking.py        # phase 3 checks, headless, ~1 min
 python3 veil/tests/test_isolation.py       # phase 4 checks, ~1 min
 python3 veil/tests/test_fingerprint.py     # phase 5 uniformity checks, ~1 min
+python3 veil/tests/test_network.py         # phase 6: HTTPS-only, DoH, ECH, WebRTC, ~1 min
 python3 veil/tests/fp_collect.py           # full fingerprint table, RFP on vs off
 python3 veil/tests/cover_your_tracks.py --compare   # EFF test, opens a window
 python3 veil/tests/probe_startup.py        # first-launch blocking gap
