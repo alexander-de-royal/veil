@@ -8,7 +8,9 @@ built-in automation protocol) and a tiny local web server, and gives tests:
     b.chrome_js(script)       run JS with browser privileges (prefs, add-ons)
     b.wait(script, timeout)   poll page JS until it returns something truthy
     srv.url(host, path)       http://<host>:<port><path> on the local server
-    srv.page(path, html)      serve this HTML at path
+    srv.page(path, html, headers={...})   serve this body at path
+    b.quit()                  quit normally (runs clear-on-exit)
+    b.crash()                 kill -9, like a crash or a force-quit
     srv.hits                  every path the server was asked for, in order
 
 The profile changes only what the tests need to function: the Marionette
@@ -56,11 +58,14 @@ class Server:
         class H(http.server.BaseHTTPRequestHandler):
             def do_GET(self):
                 outer.hits.append((self.headers.get("Host", ""), self.path))
-                body = outer.pages.get(self.path.split("?")[0])
-                if body is None:
+                entry = outer.pages.get(self.path.split("?")[0])
+                if entry is None:
                     self.send_response(404); self.end_headers(); return
+                body, headers = entry
                 self.send_response(200)
-                self.send_header("Content-Type", "text/html; charset=utf-8")
+                headers = {"Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", **headers}
+                for k, v in headers.items():
+                    self.send_header(k, v)
                 self.end_headers()
                 self.wfile.write(body.encode())
 
@@ -82,8 +87,8 @@ class Server:
     def url(self, host, path):
         return f"http://{host}:{self.port}{path}"
 
-    def page(self, path, html):
-        self.pages[path] = html
+    def page(self, path, html, headers=None):
+        self.pages[path] = (html, headers or {})
 
     def close(self):
         self.httpd.shutdown()
@@ -194,9 +199,23 @@ class Browser:
             time.sleep(0.25)
         return None
 
-    def close(self):
+    def quit(self):
+        """Quit the way a user does, so shutdown tasks (clear-on-exit) run."""
         with contextlib.suppress(Exception):
-            self._cmd("Marionette:Quit", {"flags": ["eForceQuit"]})
+            self._cmd("Marionette:Quit", {"flags": ["eAttemptQuit"]})
+        self.proc.wait(60)
+        self.close()
+
+    def crash(self):
+        """No shutdown at all: what a crash or Force Quit leaves behind."""
+        self.proc.kill()
+        self.proc.wait(15)
+        self.close()
+
+    def close(self):
+        if self.proc.poll() is None:
+            with contextlib.suppress(Exception):
+                self._cmd("Marionette:Quit", {"flags": ["eForceQuit"]})
         with contextlib.suppress(Exception):
             self.proc.wait(15)
         if self.proc.poll() is None:
