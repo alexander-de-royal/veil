@@ -25,9 +25,10 @@ VARIES_BY_DESIGN = {"canvas", "inner", "outer", "screen"}
 
 
 def user_font_families(b):
-    """Font families the browser knows that come from ~/Library/Fonts."""
-    files = [f.lower().replace(" ", "") for f in os.listdir(os.path.expanduser("~/Library/Fonts"))] \
-        if os.path.isdir(os.path.expanduser("~/Library/Fonts")) else []
+    """Font families the browser knows that come from your own font folder."""
+    files = [f.lower().replace(" ", "")
+             for d in ("~/Library/Fonts", "~/.local/share/fonts", "~/.fonts")  # macOS, Linux
+             if os.path.isdir(os.path.expanduser(d)) for f in os.listdir(os.path.expanduser(d))]
     known = b.chrome_js('return Cc["@mozilla.org/gfx/fontenumerator;1"].getService(Ci.nsIFontEnumerator).EnumerateAllFonts()')
     return [f for f in known if any(x.startswith(f.lower().replace(" ", "")) for x in files)]
 
