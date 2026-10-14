@@ -22,11 +22,13 @@ lives in this `veil/` folder, plus one line in the top-level `Makefile`
 
 ```sh
 cd ~/src/veil-source && source env.sh
+T=librewolf-$(cat version)-$(cat release)   # the current tree, e.g. librewolf-158.0-1
 
 # after editing prefs/*.cfg (seconds)
-python3 veil/apply.py librewolf-157.0.1-1 && (cd librewolf-157.0.1-1 && ./mach build faster)
-# after editing extensions.json (needs the full incremental build, ~30 s)
-python3 veil/apply.py librewolf-157.0.1-1 && (cd librewolf-157.0.1-1 && ./mach build)
+python3 veil/apply.py $T && (cd $T && ./mach build faster)
+# after editing extensions.json or release.json (~30 s)
+python3 veil/apply.py $T && (cd $T && ./mach build)
+python3 veil/tools/check_tree.py $T          # everything Veil sets exists; updater trusts veil/keys
 
 python3 veil/tests/run_all.py              # every suite below, ~8 min
 python3 veil/tests/test_tracking.py        # phase 3 checks, headless, ~1 min
