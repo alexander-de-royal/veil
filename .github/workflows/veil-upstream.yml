@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 jobs:
   rebase:
     runs-on: ubuntu-24.04
