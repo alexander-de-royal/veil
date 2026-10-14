@@ -1,0 +1,51 @@
+# Every Monday: is there a new LibreWolf? If so, rebase Veil onto it, run the
+# fast checks, and open a pull request with the result (the settings
+# LibreWolf changed are in the PR text). Nothing is built or released: merge
+# the PR, then run "Veil build" and release from your Mac.
+name: Veil upstream watch
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  rebase:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: sudo apt-get update -q && sudo apt-get install -y -q patch xz-utils gnupg
+      - name: Rebase onto LibreWolf
+        id: rebase
+        run: |
+          git config user.name "Veil upstream watch"
+          git config user.email "actions@users.noreply.github.com"
+          git remote add upstream https://codeberg.org/librewolf/source.git
+          git fetch -q upstream --tags
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "Already on the latest LibreWolf."; exit 0
+          fi
+          make fetch && make dir > /dev/null 2>&1 || true   # the old tree, for the settings diff
+          set +e
+          UPSTREAM_REMOTE=upstream veil/tools/rebase.sh --no-build > rebase.log 2>&1
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          echo "version=$(cat version)-$(cat release)" >> "$GITHUB_OUTPUT"
+          cat rebase.log
+      - name: Report
+        if: steps.rebase.outputs.version != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          v="${{ steps.rebase.outputs.version }}"
+          { echo '```'; tail -c 60000 rebase.log; echo '```'; } > body.md
+          if [ "${{ steps.rebase.outputs.status }}" = 0 ]; then
+            git push -f origin "HEAD:rebase/$v"
+            gh pr create --head "rebase/$v" --title "Rebase onto LibreWolf $v" --body-file body.md ||
+              gh pr edit "rebase/$v" --body-file body.md
+          else
+            gh issue create --title "Rebase onto LibreWolf $v needs attention" --body-file body.md
+          fi
