@@ -8,7 +8,7 @@ built-in automation protocol) and a tiny local web server, and gives tests:
     b.chrome_js(script)       run JS with browser privileges (prefs, add-ons)
     b.wait(script, timeout)   poll page JS until it returns something truthy
     srv.url(host, path)       http://<host>:<port><path> on the local server
-    srv.page(path, html, headers={...})   serve this body at path
+    srv.page(path, html, headers={...})   serve this body (str or bytes) at path
     b.quit()                  quit normally (runs clear-on-exit)
     b.crash()                 kill -9, like a crash or a force-quit
     srv.hits                  every path the server was asked for, in order
@@ -69,7 +69,7 @@ class Server:
                 for k, v in headers.items():
                     self.send_header(k, v)
                 self.end_headers()
-                self.wfile.write(body.encode())
+                self.wfile.write(body if isinstance(body, bytes) else body.encode())
 
             def log_message(self, *a):
                 pass
