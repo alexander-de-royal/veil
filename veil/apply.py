@@ -70,8 +70,12 @@ def enable_updater(tree, pol):
     rel = json.loads((VEIL / "release.json").read_text())
     mozconfig = tree / "mozconfig"
     lines = [l for l in mozconfig.read_text().splitlines()
-             if l.strip() != "ac_add_options --disable-updater" and "MAR_CHANNEL_ID" not in l]
-    lines += [f"ac_add_options MAR_CHANNEL_ID={rel['mar_channel']}  # VEIL",
+             if l.strip() != "ac_add_options --disable-updater" and "MAR_CHANNEL_ID" not in l
+             and "--enable-update-channel" not in l]
+    # Only the release (or beta/esr) channel builds in release_*.der; any
+    # other channel compiles in Mozilla's "dep" certificates instead.
+    lines += ["ac_add_options --enable-update-channel=release  # VEIL",
+              f"ac_add_options MAR_CHANNEL_ID={rel['mar_channel']}  # VEIL",
               f"ac_add_options ACCEPTED_MAR_CHANNEL_IDS={rel['mar_channel']}  # VEIL"]
     mozconfig.write_text("\n".join(lines) + "\n")
     # The updater only applies a MAR signed by one of these (release channel).

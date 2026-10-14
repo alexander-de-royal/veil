@@ -71,7 +71,7 @@ def point_at(resources, url):
 
 def resign_with_stranger_key(mar, out, tmp):
     """The new release's MAR with its signature replaced by a key Veil never trusted."""
-    bins = next(ROOT.glob("librewolf-*/obj-*/dist/bin"))
+    bins = next(d for d in ROOT.glob("librewolf-*/obj-*/dist/bin") if (d / "signmar").exists())
     env = dict(os.environ, DYLD_LIBRARY_PATH=str(bins), LD_LIBRARY_PATH=str(bins))
     db = f"sql:{tmp}/stranger"
     os.makedirs(f"{tmp}/stranger")
@@ -110,7 +110,7 @@ def attempt(label, mar_bytes):
     srv = Server()
     exe, resources = install(old, tmp)
     xml = next(new.glob("update-*.xml")).read_text()
-    xml = re.sub(r'URL="[^"]+"', f'URL="{srv.url("127.0.0.1", "/update.mar")}"', xml, count=1)
+    xml = re.sub(r'(<patch [^>]*?)URL="[^"]+"', lambda m: m.group(1) + f'URL="{srv.url("127.0.0.1", "/update.mar")}"', xml)
     xml = re.sub(r'size="\d+"', f'size="{len(mar_bytes)}"', xml)
     xml = re.sub(r' hashFunction="[^"]+" hashValue="[^"]+"', "", xml)  # signature is what counts
     srv.page("/update.xml", xml, {"Content-Type": "text/xml"})
@@ -118,14 +118,19 @@ def attempt(label, mar_bytes):
     point_at(resources, srv.url("127.0.0.1", "/update.xml"))
 
     prof = tempfile.mkdtemp(prefix="veil-update-prof.")
-    prefs = {"app.update.disabledForTesting": False}  # Marionette turns updates off otherwise
-    b = Browser(app=exe, profile=prof, extra_prefs=prefs)
+    prefs = {"app.update.disabledForTesting": False,  # Marionette turns updates off otherwise
+             "app.update.log": True}
+    log = os.environ.get("VEIL_UPDATE_LOG")
+    b = Browser(app=exe, profile=prof, extra_prefs=prefs, log=log)
     b._cmd("WebDriver:SetTimeouts", {"script": 600000})
+    if log:  # LibreWolf's cfg turns console output off on every start
+        b.chrome_js('Services.prefs.setBoolPref("devtools.console.stdout.chrome", true)')
     before = b.chrome_js(STATE, asynchronous=True)
     seen = b.chrome_js(CHECK, asynchronous=True)
-    print(f"info  {label}: updater went {' -> '.join(seen)}", flush=True)
+    steps = [s for i, s in enumerate(seen) if i == 0 or s != seen[i - 1]]
+    print(f"info  {label}: updater went {' -> '.join(steps)}", flush=True)
     b.quit()
-    b = Browser(app=exe, profile=prof, extra_prefs=prefs)  # the update applies on this start
+    b = Browser(app=exe, profile=prof, extra_prefs=prefs, log=log)  # the update applies on this start
     after = b.chrome_js(STATE, asynchronous=True)
     b.close()
     hits = [p for _, p in srv.hits]
@@ -137,8 +142,10 @@ def attempt(label, mar_bytes):
 
 mar = next(new.glob("*.mar")).read_bytes()
 before, after, seen, hits = attempt("Veil-signed update", mar)
-r.check("checks the update address and downloads the update", "/update.xml" in hits and "/update.mar" in hits, str(hits))
-r.check("the update is verified and ready on restart", seen[-1] == "READY_FOR_RESTART", seen[-1])
+r.check("checks the update address and downloads the update",
+        any(h.startswith("/update.xml") for h in hits) and "/update.mar" in hits, str(hits))
+r.check("the update is verified and ready on restart", seen[-1] == "READY_FOR_RESTART",
+        f"{seen[-1]}; history: {after['history']}")
 r.check(f"after restart it runs the new version ({before['version']} -> {after['version']})",
         after["build"] != before["build"] and after["version"] >= before["version"],
         f"build {before['build']} -> {after['build']}")
