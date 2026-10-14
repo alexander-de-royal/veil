@@ -84,14 +84,15 @@ DASH = """
   const done = arguments[0];
   Cc["@mozilla.org/network/dashboard;1"].getService(Ci.nsIDashboard)
     .requestDNSInfo({ onDashboardDataAvailable(d) {
-      done(d.entries.map(e => [e.hostname, e.trr, e.type]));
+      done(d.entries.map(e => [e.hostname, e.trr, e.type, (e.hostaddr || []).length]));
     }});
 """
 resolver = re.sub(r"^https://([^/]+).*", r"\1", b.pref("network.trr.uri") or "")
-# Only address records carry the flag; Firefox 157's TRR-only mode never uses
-# the system resolver for the others (HTTPS records) either.
-plain = sorted({h for h, trr, kind in b.chrome_js(DASH, asynchronous=True)
-                if kind == 0 and not trr and h not in ("localhost", resolver)})
+# Only address records that resolved to something carry the flag: HTTPS
+# records and empty answers (e.g. no IPv6 address) always read "not TRR".
+# Firefox's TRR-only mode never uses the system resolver for those either.
+plain = sorted({h for h, trr, kind, n in b.chrome_js(DASH, asynchronous=True)
+                if kind == 0 and n and not trr and h not in ("localhost", resolver)})
 r.check("every site visited above was looked up encrypted", not plain, ", ".join(plain))
 print(f"info  the resolver's own name ({resolver}) is looked up once in plain DNS, to find it")
 

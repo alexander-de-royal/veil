@@ -29,7 +29,9 @@ r = Results()
 
 
 def version_key(d):
-    return [int(x) for x in re.findall(r"\d+", d.name)]
+    """Order releases by build ID (newest last): two builds can share a version."""
+    meta = next(d.glob("*.json"), None)
+    return json.loads(meta.read_text())["build_id"] if meta else ""
 
 
 releases = sorted((d for d in DIST.glob("*") if list(d.glob("*.mar"))), key=version_key)
