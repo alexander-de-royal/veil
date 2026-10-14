@@ -25,6 +25,7 @@ import hashlib
 import json
 import os
 import pathlib
+import re
 import shutil
 import subprocess
 import sys
@@ -63,6 +64,18 @@ def staged_app(obj):
     return apps[0] if apps else stage
 
 
+def build_id(app, version, ini_id):
+    """The build ID the browser reports and the updater compares. It is
+    compiled into the executable; `mach package` rewrites application.ini
+    with a fresh timestamp the browser never reads, so don't trust that."""
+    for exe in [*app.glob("Contents/MacOS/librewolf"), *app.glob("librewolf"), *app.glob("librewolf.exe")]:
+        found = re.findall(re.escape(version.encode()) + rb"\x00+(\d{14})\x00", exe.read_bytes())
+        if found:
+            return found[0].decode()
+    print(f"warning: no build ID in the executable, using application.ini's {ini_id}")
+    return ini_id
+
+
 def package(tree):
     tree = ROOT / tree
     obj = next(tree.glob("obj-*"))
@@ -72,7 +85,8 @@ def package(tree):
     ini.read([*app.rglob("application.ini")][:1])
     name = tree.name.removeprefix("librewolf-")  # e.g. 158.0-1
     tgts = targets(obj)
-    meta = {"name": name, "version": ini["App"]["Version"], "build_id": ini["App"]["BuildID"], "targets": tgts}
+    version = ini["App"]["Version"]
+    meta = {"name": name, "version": version, "build_id": build_id(app, version, ini["App"]["BuildID"]), "targets": tgts}
     out = ROOT / "veil/dist" / name
     out.mkdir(parents=True, exist_ok=True)
     mar = out / f"veil-{name}-{tgts[0]}.unsigned.mar"
@@ -80,7 +94,7 @@ def package(tree):
         **os.environ, "MAR": str(obj / "dist/host/bin/mar"), "MOZ_PRODUCT_VERSION": meta["version"],
         "MAR_CHANNEL_ID": REL["mar_channel"]})
     for pkg in obj.glob(f"dist/librewolf-{name}*"):
-        if pkg.is_file() and pkg.suffix in (".dmg", ".xz", ".bz2", ".zip", ".exe"):
+        if pkg.is_file() and pkg.suffix in (".dmg", ".xz", ".bz2", ".zip", ".exe") and "_artifacts" not in pkg.name:
             shutil.copy(pkg, out)
     (out / f"{tgts[0]}.json").write_text(json.dumps({**meta, "mar": mar.name.replace(".unsigned", "")}, indent=2))
     print(f"\npackaged {name} (Firefox {meta['version']}, build {meta['build_id']}) for {', '.join(tgts)} in {out}")
@@ -88,7 +102,7 @@ def package(tree):
 
 def sign(out, publish=False):
     out = pathlib.Path(out).resolve()
-    bins = next(ROOT.glob("librewolf-*/obj-*/dist/bin"))  # signmar from any local build signs any platform's MAR
+    bins = next(d for d in ROOT.glob("librewolf-*/obj-*/dist/bin") if (d / "signmar").exists())  # signmar from any local build signs any platform's MAR
     env = dict(os.environ, DYLD_LIBRARY_PATH=str(bins), LD_LIBRARY_PATH=str(bins))
     # `gh run download` puts each platform in its own subfolder: flatten.
     for f in [f for f in out.rglob("*") if f.is_file() and f.parent != out]:

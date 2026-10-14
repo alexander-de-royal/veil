@@ -71,6 +71,8 @@ def main(tree):
     mozconfig = (tree / "mozconfig").read_text()
     if "--disable-updater" in mozconfig:
         problems.append("mozconfig still has --disable-updater")
+    if "--enable-update-channel=release" not in mozconfig:
+        problems.append("update channel is not release: the build would trust Mozilla's dep certificates, not Veil's")
     keys = VEIL / "keys"
     for der in ["release_primary.der", "release_secondary.der"]:
         built = tree / "toolkit/mozapps/update/updater" / der
@@ -78,6 +80,14 @@ def main(tree):
             problems.append(f"veil/keys/{der} is missing: run veil/tools/make_keys.sh")
         elif built.read_bytes() != (keys / der).read_bytes():
             problems.append(f"{der} in the tree is not Veil's key")
+    # After a build: the certificates actually compiled into the updater.
+    for header, der in [("primaryCert.h", "release_primary.der"), ("secondaryCert.h", "release_secondary.der")]:
+        for h in tree.glob(f"obj-*/toolkit/mozapps/update/updater/{header}"):
+            compiled = bytes(int(x, 16) for x in re.findall(r"0x([0-9a-fA-F]{2})", h.read_text()))
+            if compiled != (keys / der).read_bytes():
+                problems.append(f"the built updater in {tree.name} trusts a key that is not veil/keys/{der}: rebuild")
+            else:
+                print(f"ok    built updater trusts veil/keys/{der}")
     url = final.get("AppUpdateURL", "")
     if final.get("DisableAppUpdate") or not url.startswith("https://") or "localhost" in url:
         problems.append(f"updates are off or point nowhere (AppUpdateURL={url!r})")
