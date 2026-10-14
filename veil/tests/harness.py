@@ -39,8 +39,13 @@ if shutil.which("caffeinate"):
 
 
 def find_app():
-    src = sorted(ROOT.glob("librewolf-*-*/"))[0]
-    obj = sorted(src.glob("obj-*/"))[0]
+    # The tree for the checked-out version; VEIL_TREE=librewolf-x-y picks another.
+    name = os.environ.get("VEIL_TREE") or f"librewolf-{(ROOT / 'version').read_text().strip()}-{(ROOT / 'release').read_text().strip()}"
+    src = ROOT / name if (ROOT / name).is_dir() else sorted(ROOT.glob("librewolf-*-*/"))[-1]
+    objs = sorted(src.glob("obj-*/"))
+    if not objs:
+        raise SystemExit(f"{src.name} is not built yet: (cd {src.name} && ./mach build)")
+    obj = objs[0]
     mac = obj / "dist/LibreWolf.app/Contents/MacOS/librewolf"
     return mac if mac.exists() else obj / "dist/bin/librewolf"
 
