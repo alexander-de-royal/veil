@@ -1,0 +1,51 @@
+# Full build + tests + unsigned release package, per platform (~2-5 h).
+# Run by hand (Actions tab > Veil build > Run workflow) or by pushing a
+# v* tag. Signing happens on your Mac, never here:
+#   gh run download <run-id> -D veil/dist/<version>-<release>
+#   python3 veil/tools/release.py sign veil/dist/<version>-<release> --publish
+#
+# Not yet run on GitHub. Linux should fit the free runners; the macOS runner
+# (3 cores, 7 GB RAM) may be too small to link Firefox inside the 6 h limit.
+# Windows is not here yet: LibreWolf builds it by cross-compiling on Linux,
+# which needs its own setup.
+name: Veil build
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: linux-x86_64, os: ubuntu-24.04 }
+          - { name: linux-aarch64, os: ubuntu-24.04-arm }
+          - { name: macos-arm64, os: macos-15 }
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 355
+    steps:
+      - name: Free disk space (Linux runners start with ~20 GB free)
+        if: runner.os == 'Linux'
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL && df -h /
+      - uses: actions/checkout@v4
+      - name: Tools
+        run: |
+          if [ "$RUNNER_OS" = Linux ]; then sudo apt-get update -q && sudo apt-get install -y -q patch xz-utils gnupg python3-pip
+          else brew install gnu-sed gpatch gnupg; echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin" >> "$GITHUB_PATH"; echo "$(brew --prefix)/opt/gpatch/libexec/gnubin" >> "$GITHUB_PATH"; fi
+      - run: veil/ci/checks.sh
+      - name: Bootstrap toolchains
+        run: cd librewolf-$(cat version)-$(cat release) && ./mach --no-interactive bootstrap --application-choice=browser
+      - name: Build
+        run: cd librewolf-$(cat version)-$(cat release) && ./mach build
+      - name: Test
+        run: python3 veil/tests/run_all.py
+      - name: Package (unsigned)
+        if: always()
+        run: python3 veil/tools/release.py package librewolf-$(cat version)-$(cat release)
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: veil-${{ matrix.name }}
+          path: veil/dist/
+          if-no-files-found: error
