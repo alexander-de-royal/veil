@@ -69,12 +69,26 @@ class Server:
                 if entry is None:
                     self.send_response(404); self.end_headers(); return
                 body, headers = entry
-                self.send_response(200)
+                body = body if isinstance(body, bytes) else body.encode()
                 headers = {"Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", **headers}
+                # Byte ranges, as on a real download server (Firefox's update
+                # downloader fetches big files in chunks).
+                m = re.match(r"bytes=(\d+)-(\d*)$", self.headers.get("Range", ""))
+                if m:
+                    start = int(m.group(1))
+                    end = min(int(m.group(2) or len(body) - 1), len(body) - 1)
+                    headers["Content-Range"] = f"bytes {start}-{end}/{len(body)}"
+                    body = body[start:end + 1]
+                self.send_response(206 if m else 200)
+                headers["Content-Length"] = str(len(body))
+                headers["Accept-Ranges"] = "bytes"
                 for k, v in headers.items():
                     self.send_header(k, v)
                 self.end_headers()
-                self.wfile.write(body if isinstance(body, bytes) else body.encode())
+                try:
+                    self.wfile.write(body)
+                except (BrokenPipeError, ConnectionResetError):
+                    pass  # the browser stopped reading; fine for a test server
 
             def log_message(self, *a):
                 pass
@@ -102,7 +116,7 @@ class Server:
 
 
 class Browser:
-    def __init__(self, app=None, extra_prefs=None, profile=None, env=None, headless=True):
+    def __init__(self, app=None, extra_prefs=None, profile=None, env=None, headless=True, log=None):
         # profile=<dir> reuses one (and keeps it) to test a second launch.
         self.keep = profile is not None
         self.prof = profile or tempfile.mkdtemp(prefix="veil-test.")
@@ -121,7 +135,7 @@ class Browser:
         self.proc = subprocess.Popen(
             [str(app or find_app()), "-no-remote", "-profile", self.prof,
              "-marionette", "-remote-allow-system-access"],
-            env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            env=env, stdout=open(log, "a") if log else subprocess.DEVNULL, stderr=subprocess.STDOUT if log else subprocess.DEVNULL)
         self.sock = self._connect()
         self._id = 0
         self._recv()  # handshake
