@@ -64,6 +64,23 @@ def bundle_extensions(lw):
 MARK = "# VEIL: bundled extensions (written by veil/apply.py)"
 
 
+def enable_updater(tree, pol):
+    """Firefox's own updater, trusting only Veil's keys and Veil's releases.
+    LibreWolf ships it compiled out (mozconfig) and switched off (policies)."""
+    rel = json.loads((VEIL / "release.json").read_text())
+    mozconfig = tree / "mozconfig"
+    lines = [l for l in mozconfig.read_text().splitlines()
+             if l.strip() != "ac_add_options --disable-updater" and "MAR_CHANNEL_ID" not in l]
+    lines += [f"ac_add_options MAR_CHANNEL_ID={rel['mar_channel']}  # VEIL",
+              f"ac_add_options ACCEPTED_MAR_CHANNEL_IDS={rel['mar_channel']}  # VEIL"]
+    mozconfig.write_text("\n".join(lines) + "\n")
+    # The updater only applies a MAR signed by one of these (release channel).
+    for der in ("release_primary.der", "release_secondary.der"):
+        shutil.copy(VEIL / "keys" / der, tree / "toolkit/mozapps/update/updater" / der)
+    pol["policies"].pop("DisableAppUpdate", None)
+    pol["policies"]["AppUpdateURL"] = rel["releases"] + "/latest/download/update-%BUILD_TARGET%.xml"
+
+
 def main(tree):
     lw = ROOT / tree / "lw"
     if not lw.is_dir():
@@ -78,10 +95,11 @@ def main(tree):
     extra = VEIL / "policies.json"
     if extra.exists():
         pol["policies"] = merge(pol["policies"], json.loads(extra.read_text())["policies"])
+    enable_updater(ROOT / tree, pol)
     (lw / "policies.json").write_text(json.dumps(pol, indent=4) + "\n")
 
     bundle_extensions(lw)
-    print(f"veil: wrote {lw/'librewolf.cfg'} and {lw/'policies.json'}")
+    print(f"veil: wrote {lw/'librewolf.cfg'} and {lw/'policies.json'}, updater enabled")
 
 
 if __name__ == "__main__":

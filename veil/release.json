@@ -1,0 +1,5 @@
+{
+    "__COMMENT__": "Where Veil's releases live. apply.py points the updater here, release.py writes update files for it. Builds look for <releases>/latest/download/update-<target>.xml, e.g. update-Darwin_aarch64-gcc3.xml. MAR channel: updates for one channel are refused by builds of another.",
+    "releases": "https://github.com/alexander-de-royal/veil/releases",
+    "mar_channel": "veil-release"
+}
