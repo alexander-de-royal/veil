@@ -93,8 +93,11 @@ def librewolf_patches():
 
     enter_srcdir()
 
+    exec("sed -i 's/8b28662ab15031496b495fa701f211aa336c119b99c25b522be6f396a1231891/c07441d4938b3331ea81162efc079a489c7c75c48f63b6d6741f699ab420de73/g' third_party/rust/glean-core/.cargo-checksum.json")
     exec("sed -i 's/ada8f059f0fa8a3a82315606318429d3a70200bbb2886d1a1bcaad2856a6303b/70a4a176b6494fce419e590180bc9c631945282ded0ab05bc1591bdd37b65093/g' third_party/rust/glean-core/.cargo-checksum.json")
-    exec("sed -i 's/1753c69b71ae24a9b339d98e9b71166740a15506cfc46245251eb63c0222568f/af3ae3d026bd2e26fd9cc7c710847ac4f853b0c899412ddc9ee7e0ef1027de87/g' third_party/rust/glean-core/.cargo-checksum.json")
+
+    # Have all pings follow the datareporting preference
+    exec("find . -type f -name '*.yaml' -exec sed -i 's/follows_collection_enabled: false/follows_collection_enabled: true/g' {} +")
 
     # remove OpenAI integration
     exec('rm -vf toolkit/components/ml/content/backends/OpenAIPipeline.mjs')
@@ -136,10 +139,6 @@ def librewolf_patches():
         for line in f.readlines():
             patch('../'+line.strip())
 
-    # apply xmas.patch seperately because not all builders use this repo the same way, and
-    # we don't want to disturbe those workflows.
-    patch('../patches/xmas.patch')
-
     #
     # Apply most recent `settings` repository files.
     #
@@ -157,9 +156,7 @@ def librewolf_patches():
     # pref-pane patches
     #
 
-    # 1) patch it in
-    patch('../patches/pref-pane/pref-pane-small.patch')
-    # 2) new files
+    # new files
     exec('cp ../patches/pref-pane/category-librewolf.svg browser/themes/shared/preferences/category-librewolf.svg')
     exec('cp ../patches/pref-pane/librewolf.css browser/themes/shared/preferences/librewolf.css')
     exec('cp ../patches/pref-pane/librewolf.inc.xhtml browser/components/preferences/librewolf.inc.xhtml')
